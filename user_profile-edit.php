@@ -2,33 +2,29 @@
     session_start();
     require_once('Connections/connection.php');
 
+    ini_set('display_errors', 1);
+    error_reporting(~0);
+
 	if($_SESSION['customerID'] == "")
 	{
 		echo "Please Login!";
 		exit();
 	}
-
-	if($_SESSION['status'] != "user")
-	{
-		echo "This page for User only!";
-		exit();
-	}	
-
 	$strSQL = "SELECT * FROM customer WHERE customerID = '".$_SESSION['customerID']."' ";
 	$objQuery = mysqli_query($objCon,$strSQL);
-    $objResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
+	$objResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
 ?>
 
 <html>
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>EDIT</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="css/font.css" rel="stylesheet">
-
-    <title>User</title>
 </head>
 
 <body class="kanit-font">
@@ -38,18 +34,19 @@
             <?php include("user_header.php"); ?>
             <div class="card-body">
                 <blockquote class="blockquote mb-0">
-                    <div class="row">
+                <div class="row">
                         <div class="col-9">
-                            <h2 align="left">ข้อมูลส่วนตัว</h2>
+                            <h2 align="left">แก้ไขข้อมูลส่วนตัว</h2>
                         </div>
                         <div class="col-3">
-                            <a href="user_profile-edit.php" class="btn btn-danger">แก้ไข</a>
-                            <a href="user_slip-show.php?customerID=<?=$objResult["customerID"];?>"
+                        <a href="user_page.php" class="btn btn-danger">ยกเลิก</a>
+                        <a href="user_slip-show.php?customerID=<?=$objResult["customerID"];?>"
                                 class="btn btn-success my-2 my-sm-2">อัพโหลดสลิป</a>&nbsp;
                         </div>
                     </div>
                     <hr>
-                    <form>
+                    <form name="form1" method="post" action="user_profile-update.php">
+
                         <table style="width: 800px" align="center" class="table">
                             <tbody>
                                 <tr>
@@ -61,112 +58,168 @@
                                 <tr>
                                     <td><b> &nbsp;ชื่อผู้ใช้งาน</td>
                                     <td>
-                                        <?php echo $objResult["username"];?>
+                                        <input class="form-control" type="text" name="username" id="username"
+                                            value="<?php echo $objResult["username"];?>" required>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><b> &nbsp;รหัสผ่าน</td>
+                                    <td>
+                                        <input class="form-control" type="password" name="password" id="password"
+                                            value="<?php echo $objResult["password"];?>" required>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><b> &nbsp;ยืนยันรหัสผ่าน</td>
+                                    <td>
+                                        <input class="form-control" type="password" name="conpassword" id="conpassword"
+                                            value="" required>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td><b>&nbsp;ชื่อ</td>
-                                    <td><?php echo $objResult["firstname"];?></td>
+                                    <td>
+                                        <input class="form-control" type="text" name="firstname" id="firstname"
+                                            value="<?php echo $objResult["firstname"];?>" required>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td><b> &nbsp;นานสกุล</td>
                                     <td>
-                                        <?php echo $objResult["lastname"];?>
+                                        <input class="form-control" type="text" name="lastname" id="lastname"
+                                            value="<?php echo $objResult["lastname"];?>" required>
+
                                     </td>
                                 </tr>
                                 <tr>
                                     <td><b> &nbsp;ชื่อเล่น</td>
                                     <td>
-                                        <?php echo $objResult["nickname"];?>
+                                        <input class="form-control" type="text" name="nickname" id="nickname"
+                                            value="<?php echo $objResult["nickname"];?>" required>
+
                                     </td>
                                 </tr>
                                 <tr>
                                     <td><b> &nbsp;วันเกิด</td>
                                     <td>
-                                        <?php echo $objResult["birthdate"];?>
+                                        <input class="form-control" type="date" name="birthdate" id="birthdate"
+                                            onchange="ageCalculator()" value="<?php echo $objResult["birthdate"];?>"
+                                            required>
+
                                     </td>
                                 </tr>
                                 <tr>
                                     <td><b> &nbsp;อายุ</td>
                                     <td>
-                                        <?php echo $objResult["age"];?>
+                                        <input class="form-control" type="text" name="age" id="age"
+                                            value="<?php echo $objResult["age"];?>" required>
+
                                     </td>
                                 </tr>
                                 <tr>
                                     <td><b> &nbsp;เพศ</td>
                                     <td>
-                                        <?php echo $objResult["gender"];?>
+                                        <input class="form-control" type="text" name="gender" id="gender"
+                                            value="<?php echo $objResult["gender"];?>" required>
+
                                     </td>
                                 </tr>
                                 <tr>
                                     <td><b> &nbsp;ศาสนา</td>
                                     <td>
-                                        <?php echo $objResult["religion"];?>
+                                        <input class="form-control" type="text" name="religion" id="religion"
+                                            value="<?php echo $objResult["religion"];?>" required>
+
                                     </td>
                                 </tr>
                                 <tr>
                                     <td><b> &nbsp;ที่อยู่</td>
                                     <td>
-                                        <?php echo $objResult["address"];?>
+                                        <input class="form-control" type="text" name="address" id="address"
+                                            value="<?php echo $objResult["address"];?>" required>
+
                                     </td>
                                 </tr>
                                 <tr>
                                     <td><b> &nbsp;อีเมล์</td>
                                     <td>
-                                        <?php echo $objResult["email"];?>
+                                        <input class="form-control" type="text" name="email" id="email"
+                                            value="<?php echo $objResult["email"];?>" required>
+
                                     </td>
                                 </tr>
                                 <tr>
                                     <td><b> &nbsp;เบอร์โทรศัพท์</td>
                                     <td>
-                                        <?php echo $objResult["phone"];?>
+                                        <input class="form-control" type="text" name="phone" id="phone"
+                                            value="<?php echo $objResult["phone"];?>" required>
+
                                     </td>
                                 </tr>
-
                                 <tr>
                                     <td><b> &nbsp;ชื่อผู้ปกครอง</td>
                                     <td>
-                                        <?php echo $objResult["parent"];?>
+                                        <input class="form-control" type="text" name="parent" id="parent"
+                                            value="<?php echo $objResult["parent"];?>" required>
+
                                     </td>
                                 </tr>
                                 <tr>
                                     <td><b> &nbsp;เบอร์โทรศัพท์ผู้ปกครอง</td>
                                     <td>
-                                        <?php echo $objResult["phoneparent"];?>
+                                        <input class="form-control" type="text" name="phoneparent" id="phoneparent"
+                                            value="<?php echo $objResult["phoneparent"];?>" required>
+
                                     </td>
                                 </tr>
                                 <tr>
                                     <td><b> &nbsp;โรงเรียน</td>
                                     <td>
-                                        <?php echo $objResult["school"];?>
+                                        <input class="form-control" type="text" name="school" id="school"
+                                            value="<?php echo $objResult["school"];?>" required>
+
                                     </td>
                                 </tr>
                                 <tr>
                                     <td><b> &nbsp;ระดับชั้น</td>
                                     <td>
-                                        <?php echo $objResult["degree"];?>
+                                        <input class="form-control" type="text" name="degree" id="degree"
+                                            value="<?php echo $objResult["degree"];?>" required>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td><b> &nbsp;ชื่อครูที่ปรึกษา</td>
                                     <td>
-                                        <?php echo $objResult["teacher"];?>
+                                        <input class="form-control" type="text" name="teacher" id="teacher"
+                                            value="<?php echo $objResult["teacher"];?>" required>
+
                                     </td>
                                 </tr>
                                 <tr>
                                     <td><b> &nbsp;เบอร์โทรศัพท์ครูที่ปรึกษา</td>
                                     <td>
-                                        <?php echo $objResult["phoneteacher"];?>
+                                        <input class="form-control" type="text" name="phoneteacher" id="phoneteacher"
+                                            value="<?php echo $objResult["phoneteacher"];?>" required>
+
                                     </td>
                                 </tr>
                                 <tr>
                                     <td><b> &nbsp;ยาหรืออาหารที่แพ้</td>
                                     <td>
-                                        <?php echo $objResult["allergic"];?>
+                                        <input class="form-control" type="text" name="allergic" id="allergic"
+                                            value="<?php echo $objResult["allergic"];?>" required>
+
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
+                        <div class="input-group" align="center">
+                            <button class="btn btn-danger" type="submit" name="Submit" value="Save">ยืนยัน</button>
+                            &nbsp;
+                            <input class="btn btn-primary" type="button" value="ยกเลิก"
+                                onclick="window.location.href='user_page.php'" />
+
+                        </div>
                     </form>
                     <footer class="blockquote-footer">ข้อมูลข้างต้นเป็นแค่ส่วนประกอบที่ใช้สำหรับกิจกรรมภายในค่ายเท่านั้น
                         <cite title="Source Title">Source Title</cite>
@@ -176,14 +229,7 @@
         </div>
     </div>
     <br>
-
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Plugin JavaScript -->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="js/age-calculate.js"></script>
 </body>
 
 </html>

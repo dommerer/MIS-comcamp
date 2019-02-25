@@ -5,27 +5,8 @@
     ini_set('display_errors', 1);
     error_reporting(~0);
 
-    //control-panel
-	if($_SESSION['customerID'] == "")
-	{
-		echo "Please Login!";
-		exit();
-	}
-	if($_SESSION['status'] != "admin")
-	{
-		echo "This page for Admin only!";
-		exit();
-	}	
-	$strSQL = "SELECT * FROM customer WHERE customerID = '".$_SESSION['customerID']."' ";
-	$objQuery = mysqli_query($objCon,$strSQL);
-    $objResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
-    
-
-    //detail-panel
-    $sql = "SELECT * FROM customer";
-    $query = mysqli_query($objCon,$sql);
-    
-	
+    //check-admin-panel
+    include("admin_checkadmin.php");	
 ?>
 <html>
 
@@ -43,31 +24,7 @@
     <br>
     <div class="container">
         <div class="card">
-            <div class="card-header">
-                <div class="row row-space">
-                    <div class="col-8">
-                        <h1 class="">Administator</h1>
-                        <h5>ระบบรับสมัครค่ายยุวชนคอมพิวเตอร์</h5>
-                    </div>
-                    <div class="col-4">
-                        <div class="input-group">
-                            <p class="label" align="right"><b>ชื่อผู้ใช้งาน :</b>
-                                <?php echo $objResult["username"];?></p>&nbsp;
-                            <p class="label" align="right"><b>สถานะ :</b>
-                                <?php 
-                                    if($_SESSION['status'] != "user"){echo "ผู้ควบคุม";}
-                                    else if($_SESSION['status'] = "user"){echo "ผู้ใช้งาน";}
-                                ?>
-                            </p>
-                        </div>
-                        <div class="input-group">
-                            <input class="btn btn-dark" type="button" value="ออกจากระบบ"
-                                onclick="window.location.href='logout.php';">
-                        </div>
-                    </div>
-
-                </div>
-            </div>
+            <?php include("admin_header.php"); ?>
             <div class="card-body">
                 <blockquote class="blockquote mb-0">
                     <div class="row">
@@ -77,11 +34,11 @@
                     </div>
                     <div class="jumbotron">
                         <h1 class="display-4">สวัสดี.. คุณ <?php echo $objResult["firstname"];?></h1>
-                        <p class="lead">ระบบการจัดการค่ายยุวชนคอมพิวเตอร์ สาขาวิทยาการคอมพิวเตอร์ คณะวิทยาศาสตร์ มหาวิทยาลัยแม่โจ้</p>
+                        <p class="lead">ระบบการจัดการโครงการสัมมนาเชิงปฏิบัติการ ค่ายยุวชนคอมพิวเตอร์ <br>สาขาวิทยาการคอมพิวเตอร์ คณะวิทยาศาสตร์ มหาวิทยาลัยแม่โจ้</p>
+                        <p class="lead"></p>
                         <hr class="my-4">
-                        <p>เป็นส่วนหนึ่งของรายวิชาระบบบริหารสารสนเทศเพื่อการจัดการ คพ442</p>
+                        <p>ระบบนี้เป็นส่วนหนึ่งของรายวิชาระบบบริหารสารสนเทศเพื่อการจัดการ คพ442 ประจำปีการศึกษา 2561</p>
                     </div>
-
                 </blockquote>
             </div>
         </div>

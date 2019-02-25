@@ -5,29 +5,17 @@
     ini_set('display_errors', 1);
     error_reporting(~0);
 
-    //control-panel
-	if($_SESSION['customerID'] == "")
-	{
-		echo "Please Login!";
-		exit();
-	}
-	if($_SESSION['status'] != "admin")
-	{
-		echo "This page for Admin only!";
-		exit();
-	}	
-	$strSQL = "SELECT * FROM customer WHERE customerID = '".$_SESSION['customerID']."' ";
-	$objQuery = mysqli_query($objCon,$strSQL);
-    $objResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
+    //check-admin-panel
+    include("admin_checkadmin.php");
 
     //detail-panel
 	$sql = "SELECT * FROM files";
-	$query = mysqli_query($objCon,$sql) or die ("Error Query [".$sql."]");
+	$query = mysqli_query($objCon,$sql);
 ?>
 <html>
 
 <head>
-    <title>ThaiCreate.Com Tutorial</title>
+    <title></title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
     <!-- Bootstrap core CSS -->
@@ -40,30 +28,7 @@
     <br>
     <div class="container">
         <div class="card">
-            <div class="card-header">
-                <div class="row row-space">
-                    <div class="col-8">
-                        <h1 class="">Administator</h1>
-                        <h5>ระบบรับสมัครค่ายยุวชนคอมพิวเตอร์</h5>
-                    </div>
-                    <div class="col-4">
-                        <div class="input-group">
-                            <p class="label" align="right"><b>ชื่อผู้ใช้งาน :</b>
-                                <?php echo $objResult["username"];?></p>&nbsp;
-                            <p class="label" align="right"><b>สถานะ :</b>
-                                <?php 
-                                    if($_SESSION['status'] != "user"){echo "ผู้ควบคุม";}
-                                    else if($_SESSION['status'] = "user"){echo "ผู้ใช้งาน";}
-                                ?>
-                            </p>
-                        </div>
-                        <div class="input-group">
-                            <input class="btn btn-dark" type="button" value="ออกจากระบบ"
-                                onclick="window.location.href='logout.php';">
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?php include("admin_header.php"); ?>
             <div class="card-body">
                 <blockquote class="blockquote mb-0">
                     <div class="row">
@@ -75,6 +40,10 @@
                     <div class="row">
                         <div class="col-10">
                             <h2 align="left">สไลด์</h2>
+                            <h5 align="left">
+                                <font color='#FF0000'>*ห้ามตั้งชื่อไฟล์ซ้ำกัน อัพโหลดภาพได้ขนาดไม่เกิน 2 MB สัดส่วนภาพ 3
+                                    : 1 </font>
+                            </h5>
                         </div>
                         <div class="col-2">
                             <input class="btn btn-success" type="button" value="เพิ่มสไลด์"
@@ -82,22 +51,21 @@
                         </div>
                     </div>
                     <hr>
-                    <table class="table" width="600" align="center">
+                    <table class="table" align="center" width="100%">
                         <thead class="thead-dark">
                             <tr>
-                                <th width="80">
+                                <th width="20">
                                     <div align="center">#</div>
                                 </th>
-                                <th>
+                                <th width="500">
                                     <div align="center">รูปภาพ</div>
                                 </th>
-                                <th width="160">
-                                    <div align="center">ชื่อภาพ</div>
+                                <th width="350">
+                                    <div align="center">ลายละเอียด</div>
                                 </th>
-                                <th>
+                                <th width="175">
                                     <div align="center">ตัวเลือก</div>
                                 </th>
-
                             </tr>
                         </thead>
                         <?php $item = 1; ?>
@@ -114,12 +82,18 @@
                                 </center>
                             </td>
                             <td>
-                                <center><?php echo $result["Name"];?></center>
+                                <b>ชื่อไฟล์:</b><br>
+                                <left>
+                                    <p><?php echo $result["FilesName"];?></p>
+
+                                    <b>รายละเอียด:</b><br>
+                                    <p><?php echo $result["Name"];?></p>
+                                </left>
                             </td>
                             <td>
-                                <center><input class="btn btn-primary" type="button" value="แก้ไข"
+                                <center>
+                                    <input class="btn btn-primary" type="button" value="แก้ไข"
                                         onclick="window.location.href='admin_carousel-edit.php?FilesID=<?php echo $result['FilesID'];?>'">
-
                                     <input class="btn btn-danger" type="button" value="ลบ"
                                         onclick="window.location.href='admin_carousel-delete.php?FilesID=<?php echo $result['FilesID'];?>'">
                                 </center>

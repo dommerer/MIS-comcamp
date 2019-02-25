@@ -141,7 +141,7 @@
                     <button type="button" class="btn btn-primary" data-toggle="modal"
                         data-target=".bd-register-modal-lg">ลงทะเบียน</button>
                     <input class="btn btn-success" type="button" value="ประกาศรายชื่อผู้สมัคร"
-                                onclick="window.location.href='announce.php';">
+                                onclick="window.location.href='user_announce.php';">
                 </div>
             </div>
         </div>
@@ -192,8 +192,7 @@
    <?php include("login.php"); ?>
 
     <!-- Register modal -->
-    <?php include("register.php"); ?>
-
+    <?php include("user_register.php"); ?>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

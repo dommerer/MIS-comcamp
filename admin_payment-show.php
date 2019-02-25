@@ -1,30 +1,16 @@
 <?php
-    session_start();
-    require_once('Connections/connection.php');
+session_start();
+require_once 'Connections/connection.php';
 
-    ini_set('display_errors', 1);
-    error_reporting(~0);
+ini_set('display_errors', 1);
+error_reporting(~0);
 
-    //control-panel
-	if($_SESSION['customerID'] == "")
-	{
-		echo "Please Login!";
-		exit();
-	}
-	if($_SESSION['status'] != "admin")
-	{
-		echo "This page for Admin only!";
-		exit();
-	}	
-	$strSQL = "SELECT * FROM customer WHERE customerID = '".$_SESSION['customerID']."' ";
-	$objQuery = mysqli_query($objCon,$strSQL);
-    $objResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
+//check-admin-panel
+include "admin_checkadmin.php";
 
-    //detail-panel
-	$sqldetail = "SELECT * FROM details";
-    $querydetail = mysqli_query($objCon,$sqldetail) or die ("Error Query [".$sqldetail."]");
-    
-
+//detail-panel
+$sql = "SELECT * FROM customer";
+$query = mysqli_query($objCon, $sql) or die("Error Query [" . $sql . "]");
 ?>
 <html>
 
@@ -42,30 +28,7 @@
     <br>
     <div class="container">
         <div class="card">
-            <div class="card-header">
-                <div class="row row-space">
-                    <div class="col-8">
-                        <h1 class="">Administator</h1>
-                        <h5>ระบบรับสมัครค่ายยุวชนคอมพิวเตอร์</h5>
-                    </div>
-                    <div class="col-4">
-                        <div class="input-group">
-                            <p class="label" align="right"><b>ชื่อผู้ใช้งาน :</b>
-                                <?php echo $objResult["username"];?></p>&nbsp;
-                            <p class="label" align="right"><b>สถานะ :</b>
-                                <?php 
-                                    if($_SESSION['status'] != "user"){echo "ผู้ควบคุม";}
-                                    else if($_SESSION['status'] = "user"){echo "ผู้ใช้งาน";}
-                                ?>
-                            </p>
-                        </div>
-                        <div class="input-group">
-                            <input class="btn btn-dark" type="button" value="ออกจากระบบ"
-                                onclick="window.location.href='logout.php';">
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?php include("admin_header.php"); ?>
             <div class="card-body">
                 <blockquote class="blockquote mb-0">
                     <div class="row">
@@ -73,8 +36,79 @@
                             <?php include("admin_menu.php"); ?>
                         </div>
                     </div>
-                   
+                    <hr>
+                    <div class="row">
+                        <div class="col-10">
+                            <h2 align="left">การชำระเงิน</h2>
+                        </div>
+                        <div class="col-2">
+                            <input class="btn btn-success" type="button" value="การชำระเงิน"
+                                onclick="window.location.href=''" />
+                        </div>
+                    </div>
+                    <hr>
 
+
+                    <table class="table" width="100%">
+                        <thead class="thead-dark">
+                            <tr align="center">
+                                <th width="5%">ลำดับ</th>
+                                <th width="15%">ชื่อ</th>
+                                <th width="15%">นามสกุล</th>
+                                <th width="20%">สลิป</th>
+                                <th width="15%">สถานะการชำระเงิน</th>
+                                <th width="25%">ตัวเลือก</th>
+                            </tr>
+                        </thead>
+                        <?php $item = 1; ?>
+                        <?php while($result = mysqli_fetch_array($query,MYSQLI_ASSOC)) { ?>
+                        <tr align="center">
+                            <td><?php echo $item++; ?></td>
+                            <td><?php echo $result['firstname']; ?></td>
+                            <td><?php echo $result['lastname']; ?></td>
+                            <td><a target="_blank" href="images/slip/<?php echo $result["slip"];?>"><?php echo $result["slip"];?></a>
+                            </td>
+                            <td>
+                                <?php 
+                                    if($result['payment']=="2"){
+                                            echo "<font color='#FF0000'>ยังไม่ได้ชำระ</font>";
+                                    }if($result['payment']=="1"){
+                                            echo "<font color='#31B404'>ชำระแล้ว</font>";
+                                    }
+                                ?>
+                            </td>
+                            <td>
+                                <form action="admin_payment-update.php" method="post" name="form1">
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <input type="hidden" name="customerID" value=<?php echo $result['customerID'];?>>
+                                            <select class="form-control" name="payment" id="payment">
+                                                <option disabled="disabled" selected="selected">โปรดระบุ</option>
+                                                <?php
+                                                    $strSQL = "SELECT * FROM payment ORDER BY payID ASC";
+                                                    $objQuery = mysqli_query($objCon,$strSQL);
+                                                    while($objResult = mysqli_fetch_array($objQuery)){
+                                                ?>
+                                                <option value="<?php echo $objResult["payID"];?>">
+                                                    <?php echo $objResult["paystatus"];?>
+                                                </option>
+                                                <?php 
+                                                    }
+                                                ?>
+                                            </select>
+                                        </div>
+                                        <div class="">
+                                            <input class="btn btn-primary" name="btnSubmit" type="submit"
+                                                value="บันทึก">
+                                        </div>
+                                    </div>
+                                </form>
+
+                            </td>
+                        </tr>
+                        <?php } ?>
+                    </table>
+                    <br>
                 </blockquote>
             </div>
         </div>

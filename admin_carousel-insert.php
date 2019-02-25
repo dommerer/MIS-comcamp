@@ -5,20 +5,8 @@
     ini_set('display_errors', 1);
     error_reporting(~0);
 
-    //control-panel
-	if($_SESSION['customerID'] == "")
-	{
-		echo "Please Login!";
-		exit();
-	}
-	if($_SESSION['status'] != "admin")
-	{
-		echo "This page for Admin only!";
-		exit();
-	}	
-	$strSQL = "SELECT * FROM customer WHERE customerID = '".$_SESSION['customerID']."' ";
-	$objQuery = mysqli_query($objCon,$strSQL);
-    $objResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
+    //check-admin-panel
+    include("admin_checkadmin.php");
 ?>
 <html>
 
@@ -36,33 +24,7 @@
     <br>
     <div class="container">
         <div class="card">
-            <div class="card-header">
-                <div class="row row-space">
-                    <div class="col-8">
-                        <h1 class="">Administator</h1>
-                        <h5>ระบบรับสมัครค่ายยุวชนคอมพิวเตอร์</h5>
-                    </div>
-                    <div class="col-4">
-                        <div class="input-group">
-                            <p class="label" align="right"><b>ชื่อผู้ใช้งาน :</b>
-                                <?php echo $objResult["username"];?></p>&nbsp;
-                            <p class="label" align="right"><b>สถานะ :</b>
-                                <?php 
-                                    if($_SESSION['status'] != "user"){echo "ผู้ควบคุม";}
-                                    else if($_SESSION['status'] = "user"){echo "ผู้ใช้งาน";}
-                                ?>
-                            </p>
-                        </div>
-                        <div class="input-group">
-                            <input class="btn btn-danger" type="button" value="ยกเลิก"
-                                onclick="window.location.href='admin_carousel-show.php'" />&nbsp;
-                            <input class="btn btn-dark" type="button" value="ออกจากระบบ"
-                                onclick="window.location.href='logout.php';">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+            <?php include("admin_header.php"); ?>
             <div class="card-body">
                 <blockquote class="blockquote mb-0">
                     <form name="form1" method="post" action="admin_carousel-upload.php" enctype="multipart/form-data">
@@ -88,8 +50,7 @@
                                                 <tr>
                                                     <td><b> &nbsp;ตัวเลือก</td>
                                                     <td>
-                                                        <input type="hidden" name="hdnOldFile"
-                                                            value="<?php echo $objResult["FilesName"];?>">
+                                                        
                                                         <input class="btn btn-primary" name="btnSubmit" type="submit"
                                                             value="ตกลง">
                                                         <input class="btn btn-danger" type="button" value="ยกเลิก"

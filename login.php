@@ -5,7 +5,7 @@
                     <h4 class="modal-title">เข้าสู่ระบบ</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
-                <form class="login-form" name="form" method="post" action="check_login.php">
+                <form class="login-form" name="form" method="post" action="login_check.php">
                     <div class="modal-body">
                         <div class="container">
                             <div class="row justify-content-md-center">

@@ -5,25 +5,13 @@
     ini_set('display_errors', 1);
     error_reporting(~0);
 
-    //control-panel
-    if($_SESSION['customerID'] == "")
-    {
-        echo "Please Login!";
-        exit();
-    }
-    if($_SESSION['status'] != "admin")
-    {
-        echo "This page for Admin only!";
-        exit();
-    }
-    $sql = "SELECT * FROM customer WHERE customerID = '".$_SESSION['customerID']."' ";
-    $query = mysqli_query($objCon,$sql);
-    $result = mysqli_fetch_array($query,MYSQLI_ASSOC);
+    //check-admin-panel
+    include("admin_checkadmin.php");
 
     //detail-panel
-    $strSQL = "SELECT * FROM photosets WHERE FilesID = '".$_GET["FilesID"]."' ";
-    $objQuery = mysqli_query($objCon,$strSQL) or die ("Error Query [".$strSQL."]");
-    $objResult = mysqli_fetch_array($objQuery);
+    $sql = "SELECT * FROM photosets WHERE FilesID = '".$_GET["FilesID"]."' ";
+    $query = mysqli_query($objCon,$sql) or die ("Error Query [".$sql."]");
+    $result = mysqli_fetch_array($query,MYSQLI_ASSOC);
 ?>
 <html>
 
@@ -41,32 +29,7 @@
     <br>
     <div class="container">
         <div class="card">
-            <div class="card-header">
-                <div class="row row-space">
-                    <div class="col-8">
-                        <h1 class="">Administator</h1>
-                        <h5>ระบบรับสมัครค่ายยุวชนคอมพิวเตอร์</h5>
-                    </div>
-                    <div class="col-4">
-                        <div class="input-group">
-                            <p class="label" align="right"><b>ชื่อผู้ใช้งาน :</b>
-                                <?php echo $result["username"];?></p>&nbsp;
-                            <p class="label" align="right"><b>สถานะ :</b>
-                                <?php 
-                                    if($_SESSION['status'] != "user"){echo "ผู้ควบคุม";}
-                                    else if($_SESSION['status'] = "user"){echo "ผู้ใช้งาน";}
-                                ?>
-                            </p>
-                        </div>
-                        <div class="input-group">
-                            <input class="btn btn-danger" type="button" value="ยกเลิก"
-                                onclick="window.location.href='admin_carousel-show.php'" />&nbsp;
-                            <input class="btn btn-dark" type="button" value="ออกจากระบบ"
-                                onclick="window.location.href='logout.php';">
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?php include("admin_header.php"); ?>
             <div class="card-body">
                 <blockquote class="blockquote mb-0">
                     <form name="form1" method="post"
@@ -89,14 +52,14 @@
                                                     <td><b> &nbsp;ข้อความ</td>
                                                     <td>
                                                         <textarea class="form-control" id="exampleFormControlTextarea1"
-                                                            rows="5" name="txtName"><?=$objResult["Name"];?></textarea>
+                                                            rows="5" name="txtName"><?php echo $result["Name"];?></textarea>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td><b> &nbsp;ตัวเลือก</td>
                                                     <td>
                                                         <input type="hidden" name="hdnOldFile"
-                                                            value="<?=$objResult["FilesName"];?>">
+                                                            value="<?php echo $result["FilesName"];?>">
                                                         <input class="btn btn-primary" name="btnSubmit" type="submit"
                                                             value="ตกลง">
                                                         <input class="btn btn-danger" type="button" value="ยกเลิก"
@@ -107,7 +70,7 @@
                                                     <td><b> &nbsp;ตัวอย่างภาพ</td>
                                                     <td>
                                                         <img id="imgAvatar"
-                                                            src="images/files-photoset/<?=$objResult["FilesName"];?>"
+                                                            src="images/files-photoset/<?php echo $result["FilesName"];?>"
                                                             width="540" height="350">
                                                     </td>
                                                 </tr>

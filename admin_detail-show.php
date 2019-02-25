@@ -5,20 +5,8 @@
     ini_set('display_errors', 1);
     error_reporting(~0);
 
-    //control-panel
-	if($_SESSION['customerID'] == "")
-	{
-		echo "Please Login!";
-		exit();
-	}
-	if($_SESSION['status'] != "admin")
-	{
-		echo "This page for Admin only!";
-		exit();
-	}	
-	$strSQL = "SELECT * FROM customer WHERE customerID = '".$_SESSION['customerID']."' ";
-	$objQuery = mysqli_query($objCon,$strSQL);
-    $objResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
+    //check-admin-panel
+    include("admin_checkadmin.php");
 
     //detail-panel
 	$sqldetail = "SELECT * FROM details";
@@ -49,30 +37,7 @@
     <br>
     <div class="container">
         <div class="card">
-            <div class="card-header">
-                <div class="row row-space">
-                    <div class="col-8">
-                        <h1 class="">Administator</h1>
-                        <h5>ระบบรับสมัครค่ายยุวชนคอมพิวเตอร์</h5>
-                    </div>
-                    <div class="col-4">
-                        <div class="input-group">
-                            <p class="label" align="right"><b>ชื่อผู้ใช้งาน :</b>
-                                <?php echo $objResult["username"];?></p>&nbsp;
-                            <p class="label" align="right"><b>สถานะ :</b>
-                                <?php 
-                                    if($_SESSION['status'] != "user"){echo "ผู้ควบคุม";}
-                                    else if($_SESSION['status'] = "user"){echo "ผู้ใช้งาน";}
-                                ?>
-                            </p>
-                        </div>
-                        <div class="input-group">
-                            <input class="btn btn-dark" type="button" value="ออกจากระบบ"
-                                onclick="window.location.href='logout.php';">
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?php include("admin_header.php"); ?>
             <div class="card-body">
                 <blockquote class="blockquote mb-0">
                     <div class="row">
@@ -82,9 +47,7 @@
                     </div>
                     <!-- about------------------------------------------------------------------------------------------- -->
                     <br>
-
-
-                    <table class="table"  align="center">
+                    <table class="table" align="center">
                         <thead class="">
                             <tr>
                                 <th width="500">
@@ -107,11 +70,10 @@
 	                        while($resultdetail = mysqli_fetch_array($querydetail))
 	                        {
                         ?>
-
                         <tr>
                             <td>
                                 <center><img src="images/files-detail/<?php echo $resultdetail["FilesName"];?>"
-                                width="500" height="320">
+                                        width="500" height="320">
                                 </center>
                             </td>
                             <td>
@@ -153,7 +115,7 @@
                         <tr>
                             <td>
                                 <center><img src="images/files-benefit/<?php echo $resultbenefit["FilesName"];?>"
-                                width="500" height="320">
+                                        width="500" height="320">
                                 </center>
                             </td>
                             <td>
@@ -171,17 +133,15 @@
                     </table>
                     <!-- photoset------------------------------------------------------------------------------------------- -->
                     <br>
-                    
-
                     <table class="table" width="600" align="center">
                         <thead class="">
                             <tr>
                                 <th width="500">
-                                <div class="row">
-                        <div class="col-12">
-                            <h2 align="left">ภาพกิจกรรม</h2>
-                        </div>
-                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <h2 align="left">ภาพกิจกรรม</h2>
+                                        </div>
+                                    </div>
                                 </th>
                                 <th width="700">
                                     <div align="center">ข้อความ</div>
@@ -197,7 +157,7 @@
                         <tr>
                             <td>
                                 <center><img src="images/files-photoset/<?php echo $resultphotoset["FilesName"];?>"
-                                width="500" height="320">
+                                        width="500" height="320">
                                 </center>
                             </td>
                             <td>
@@ -215,18 +175,16 @@
                     </table>
                     <!-- register------------------------------------------------------------------------------------------- -->
                     <br>
-                    
-
                     <table class="table" width="600" align="center">
                         <thead class="">
                             <tr>
                                 <th width="500">
-                                <div class="row">
-                        <div class="col-12">
-                            <h2 align="left">ภาพกิจกรรม</h2>
-                        </div>
-                    </div>
-                                </th >
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <h2 align="left">ลงทะเบียน</h2>
+                                        </div>
+                                    </div>
+                                </th>
                                 <th width="700">
                                     <div align="center">ข้อความ</div>
                                 </th>
@@ -241,7 +199,7 @@
                         <tr>
                             <td>
                                 <center><img src="images/files-register/<?php echo $resultregister["FilesName"];?>"
-                                width="500" height="320">
+                                        width="500" height="320">
                                 </center>
                             </td>
                             <td>
@@ -258,13 +216,11 @@
                         ?>
                     </table>
                     <!-- ------------------------------------------------------------------------------------------- -->
-
                 </blockquote>
             </div>
         </div>
     </div>
     <br>
-
 </body>
 
 </html>
