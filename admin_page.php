@@ -32,6 +32,7 @@
                             <?php include("admin_menu.php"); ?>
                         </div>
                     </div>
+                    <hr>
                     <div class="jumbotron">
                         <h1 class="display-4">สวัสดี.. คุณ <?php echo $objResult["firstname"];?></h1>
                         <p class="lead">ระบบการจัดการโครงการสัมมนาเชิงปฏิบัติการ ค่ายยุวชนคอมพิวเตอร์ <br>สาขาวิทยาการคอมพิวเตอร์ คณะวิทยาศาสตร์ มหาวิทยาลัยแม่โจ้</p>

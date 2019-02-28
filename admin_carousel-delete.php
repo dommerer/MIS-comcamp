@@ -11,5 +11,3 @@
 		$objQuery = mysqli_query($objCon,$strSQL2);
     header('Location: admin_carousel-show.php');
 ?>
-
-=

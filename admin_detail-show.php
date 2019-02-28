@@ -11,15 +11,20 @@
     //detail-panel
 	$sqldetail = "SELECT * FROM details";
     $querydetail = mysqli_query($objCon,$sqldetail) or die ("Error Query [".$sqldetail."]");
-    
+    $resultdetail = mysqli_fetch_array($querydetail,MYSQLI_ASSOC);
+                         
     $sqlbenefit = "SELECT * FROM benefits";
     $querybenefit = mysqli_query($objCon,$sqlbenefit) or die ("Error Query [".$sqlbenefit."]");
-    
+    $resultbenefit = mysqli_fetch_array($querybenefit,MYSQLI_ASSOC);
+
     $sqlphotoset = "SELECT * FROM photosets";
     $queryphotoset = mysqli_query($objCon,$sqlphotoset) or die ("Error Query [".$sqlphotoset."]");
-    
+    $resultphotoset = mysqli_fetch_array($queryphotoset,MYSQLI_ASSOC);
+                       
+
     $sqlregister = "SELECT * FROM registers";
 	$queryregister = mysqli_query($objCon,$sqlregister) or die ("Error Query [".$sqlregister."]");
+    $resultregister = mysqli_fetch_array($queryregister,MYSQLI_ASSOC);
 ?>
 <html>
 
@@ -45,31 +50,24 @@
                             <?php include("admin_menu.php"); ?>
                         </div>
                     </div>
-                    <!-- about------------------------------------------------------------------------------------------- -->
                     <br>
-                    <table class="table" align="center">
-                        <thead class="">
-                            <tr>
-                                <th width="500">
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <h2 align="left">เกี่ยวกับค่าย</h2>
-                                        </div>
+                    <!-- about------------------------------------------------------------------------------------------- -->
+                    <table class="table" align="center" style="width: 1000px">
+                        <tr>
+                            <th width="500">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h2 align="left">เกี่ยวกับค่าย</h2>
                                     </div>
-                                </th>
-                                <th width="700">
-                                    <div align="center">ข้อความ</div>
-                                </th>
-                                <th>
-                                    <div align="center">ตัวเลือก</div>
-                                </th>
-
-                            </tr>
-                        </thead>
-                        <?php
-	                        while($resultdetail = mysqli_fetch_array($querydetail))
-	                        {
-                        ?>
+                                </div>
+                            </th>
+                            <th width="700">
+                                <div align="center">ข้อความ</div>
+                            </th>
+                            <th>
+                                <div align="center">ตัวเลือก</div>
+                            </th>
+                        </tr>
                         <tr>
                             <td>
                                 <center><img src="images/files-detail/<?php echo $resultdetail["FilesName"];?>"
@@ -85,33 +83,23 @@
                                 </center>
                             </td>
                         </tr>
-                        <?php
-	                        }
-                        ?>
-                    </table>
-                    <!-- benefit------------------------------------------------------------------------------------------- -->
-                    <br>
-                    <table class="table" width="600" align="center">
-                        <thead class="">
-                            <tr>
-                                <th width="500">
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <h2 align="left">ประโยชน์จากค่าย</h2>
-                                        </div>
+                        <!-- benefit------------------------------------------------------------------------------------------- -->
+                        
+                        <tr>
+                            <th width="500">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h2 align="left">ประโยชน์จากค่าย</h2>
                                     </div>
-                                </th>
-                                <th width="700">
-                                    <div align="center">ข้อความ</div>
-                                </th>
-                                <th>
-                                    <div align="center">ตัวเลือก</div>
-                                </th>
-                            </tr>
-                        </thead>
-                        <?php
-	                        while($resultbenefit = mysqli_fetch_array($querybenefit)){
-                        ?>
+                                </div>
+                            </th>
+                            <th width="700">
+                                <div align="center">ข้อความ</div>
+                            </th>
+                            <th>
+                                <div align="center">ตัวเลือก</div>
+                            </th>
+                        </tr>
                         <tr>
                             <td>
                                 <center><img src="images/files-benefit/<?php echo $resultbenefit["FilesName"];?>"
@@ -127,33 +115,22 @@
                                 </center>
                             </td>
                         </tr>
-                        <?php
-	                        }
-                        ?>
-                    </table>
-                    <!-- photoset------------------------------------------------------------------------------------------- -->
-                    <br>
-                    <table class="table" width="600" align="center">
-                        <thead class="">
-                            <tr>
-                                <th width="500">
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <h2 align="left">ภาพกิจกรรม</h2>
-                                        </div>
+                        <!-- photoset------------------------------------------------------------------------------------------- -->
+                        <tr>
+                            <th width="500">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h2 align="left">ภาพกิจกรรม</h2>
                                     </div>
-                                </th>
-                                <th width="700">
-                                    <div align="center">ข้อความ</div>
-                                </th>
-                                <th>
-                                    <div align="center">ตัวเลือก</div>
-                                </th>
-                            </tr>
-                        </thead>
-                        <?php
-	                        while($resultphotoset = mysqli_fetch_array($queryphotoset)){
-                        ?>
+                                </div>
+                            </th>
+                            <th width="700">
+                                <div align="center">ข้อความ</div>
+                            </th>
+                            <th>
+                                <div align="center">ตัวเลือก</div>
+                            </th>
+                        </tr>
                         <tr>
                             <td>
                                 <center><img src="images/files-photoset/<?php echo $resultphotoset["FilesName"];?>"
@@ -169,33 +146,22 @@
                                 </center>
                             </td>
                         </tr>
-                        <?php
-	                        }
-                        ?>
-                    </table>
-                    <!-- register------------------------------------------------------------------------------------------- -->
-                    <br>
-                    <table class="table" width="600" align="center">
-                        <thead class="">
-                            <tr>
-                                <th width="500">
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <h2 align="left">ลงทะเบียน</h2>
-                                        </div>
+                        <!-- register------------------------------------------------------------------------------------------- -->
+                        <tr>
+                            <th width="500">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h2 align="left">ลงทะเบียน</h2>
                                     </div>
-                                </th>
-                                <th width="700">
-                                    <div align="center">ข้อความ</div>
-                                </th>
-                                <th>
-                                    <div align="center">ตัวเลือก</div>
-                                </th>
-                            </tr>
-                        </thead>
-                        <?php
-	                        while($resultregister = mysqli_fetch_array($queryregister)){
-                        ?>
+                                </div>
+                            </th>
+                            <th width="700">
+                                <div align="center">ข้อความ</div>
+                            </th>
+                            <th>
+                                <div align="center">ตัวเลือก</div>
+                            </th>
+                        </tr>
                         <tr>
                             <td>
                                 <center><img src="images/files-register/<?php echo $resultregister["FilesName"];?>"
@@ -211,9 +177,6 @@
                                 </center>
                             </td>
                         </tr>
-                        <?php
-	                        }
-                        ?>
                     </table>
                     <!-- ------------------------------------------------------------------------------------------- -->
                 </blockquote>

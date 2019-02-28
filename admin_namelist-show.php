@@ -49,9 +49,7 @@
                             </div>
                         </div>
                         <hr>
-
-                        <input type="hidden" name="hdnCmd" value="">
-                        <table class="table" width="600">
+                        <table class="table">
                             <thead class="thead-dark">
                                 <tr>
                                     <th>

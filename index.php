@@ -90,25 +90,28 @@
             <div class="row">
                 <div class="col-lg-6 mx-auto">
                     <h1>เกี่ยวกับค่าย</h1>
+                    <hr>
                     <p class="lead"><?=$detailResult["Name"];?></p>
-                    </p>
+
                 </div>
                 <div class="col-lg-6">
                     <img src="images/files-detail/<?=$detailResult["FilesName"];?>" width="540" height="350">
                 </div>
             </div>
         </div>
+        
     </section>
 
     <section id="benefit" class="bg-light">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
-                <img src="images/files-benefit/<?=$benefitResult["FilesName"];?>" width="540" height="350">
+                    <img src="images/files-benefit/<?=$benefitResult["FilesName"];?>" width="540" height="350">
                 </div>
                 <div class="col-lg-6 mx-auto">
                     <h1 align="right">ประโยชน์จากค่าย</h1>
-                    <p class="lead"><?=$benefitResult["Name"];?></p>
+                    <hr>
+                    <p class="lead" align="right"><?=$benefitResult["Name"];?></p>
                 </div>
             </div>
         </div>
@@ -117,13 +120,13 @@
     <section id="photoset">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 mx-auto">
+                <div class="col-lg-12 mx-auto">
                     <h1>ภาพกิจกรรม</h1>
-                    <p class="lead"><?=$photosetResult["Name"];?></p>
+                    <hr>
+
+                    <?php include("show_album.php");?>
                 </div>
-                <div class="col-lg-6">
-                <img src="images/files-photoset/<?=$photosetResult["FilesName"];?>" width="540" height="350">
-                </div>
+
             </div>
         </div>
     </section>
@@ -132,16 +135,16 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
-                <img src="images/files-register/<?=$registerResult["FilesName"];?>" width="540" height="350">
+                    <img src="images/files-register/<?=$registerResult["FilesName"];?>" width="540" height="350">
                 </div>
                 <div class="col-lg-6 mx-auto">
                     <h1 align="right">ลงทะเบียน</h1>
-
-                    <p class="lead"><?=$registerResult["Name"];?></p>
+                    <hr>
+                    <p class="lead" align="right"><?=$registerResult["Name"];?></p>
                     <button type="button" class="btn btn-primary" data-toggle="modal"
                         data-target=".bd-register-modal-lg">ลงทะเบียน</button>
                     <input class="btn btn-success" type="button" value="ประกาศรายชื่อผู้สมัคร"
-                                onclick="window.location.href='user_announce.php';">
+                        onclick="window.location.href='user_announce.php';">
                 </div>
             </div>
         </div>
@@ -152,6 +155,7 @@
             <div class="row">
                 <div class="col-lg-12 mx-auto">
                     <h1>การชำระเงิน</h1>
+                    <hr>
                     <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero odio fugiat
                         voluptatem dolor, provident officiis, id iusto! Obcaecati incidunt, qui nihil beatae magnam et
                         repudiandae ipsa exercitationem, in, quo totam.</p>
@@ -188,8 +192,8 @@
         </div>
     </footer>
 
-   <!-- Login Modal -->
-   <?php include("login.php"); ?>
+    <!-- Login Modal -->
+    <?php include("login.php"); ?>
 
     <!-- Register modal -->
     <?php include("user_register.php"); ?>
