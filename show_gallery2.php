@@ -12,14 +12,14 @@
             </div>
             <div class="modal-body">
                 <?php
-		$strSQL = "SELECT * FROM album WHERE AlbumID = '".$_GET["AlbumID"]."' ";
+		$strSQL = "SELECT * FROM comcamp_album WHERE AlbumID = '".$_GET["AlbumID"]."' ";
 		$objQuery = mysqli_query($objCon,$strSQL) or die ("Error Query [".$strSQL."]");
 		$objResult = mysqli_fetch_array($objQuery);
 ?>
                 <h1><?php echo $objResult["AlbumName"];?></h1>
                 <?php
 
-		$strSQL2 = "SELECT * FROM gallery WHERE AlbumID = '".$_GET["AlbumID"]."' ORDER BY GalleryID ASC ";
+		$strSQL2 = "SELECT * FROM comcamp_gallery WHERE AlbumID = '".$_GET["AlbumID"]."' ORDER BY GalleryID ASC ";
 		$objQuery2 = mysqli_query($objCon,$strSQL2) or die ("Error Query [".$strSQL2."]");
 
 		echo"<table border=\"1\"  cellspacing=\"1\" cellpadding=\"1\"><tr>";

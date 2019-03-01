@@ -23,7 +23,7 @@
 		echo "Please input Name!";
 		exit();	
 	}	
-    $strSQL = "SELECT * FROM customer WHERE username = '".trim($_POST['username'])."' ";
+    $strSQL = "SELECT * FROM comcamp_users WHERE username = '".trim($_POST['username'])."' ";
 	$objQuery = mysqli_query($objCon,$strSQL);
 	$objResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
 	if($objResult)
@@ -32,7 +32,7 @@
 	}
 	else
 	{	
-		$strSQL = "INSERT INTO customer (username,password,firstname,lastname,
+		$strSQL = "INSERT INTO comcamp_users (username,password,firstname,lastname,
 										nickname,age,birthdate,gender,email,
 										phone,address,parent,phoneparent,school,degree,
 										teacher,phoneteacher,allergic,religion,status,payment) 

@@ -7,7 +7,7 @@
 		echo "Copy/Upload Complete<br>";
 
 		//*** Insert Record ***//
-		$strSQL = "INSERT INTO album ";
+		$strSQL = "INSERT INTO comcamp_album ";
 		$strSQL .="(AlbumName,AlbumShot) VALUES ('".$_POST["txtAlbumName"]."','".$fileName."')";
 		$objQuery = mysqli_query($objCon,$strSQL);		
 		mysqli_close($objCon);

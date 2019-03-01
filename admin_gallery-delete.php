@@ -2,7 +2,7 @@
 
     <?php
 		//*** Select Old File ***//
-		$strSQL = "SELECT * FROM gallery WHERE GalleryID = '".$_GET["GalleryID"]."' ";
+		$strSQL = "SELECT * FROM comcamp_gallery WHERE GalleryID = '".$_GET["GalleryID"]."' ";
 		$objQuery = mysqli_query($objCon,$strSQL) or die ("Error Query [".$strSQL."]");
 		$objResult = mysqli_fetch_array($objQuery);
 
@@ -10,7 +10,7 @@
 		@unlink("images/files-album/".$objResult["GalleryShot"]);
 		
 		//*** Delete Row ***'
-		$strSQL = " DELETE FROM gallery ";
+		$strSQL = " DELETE FROM comcamp_gallery ";
 		$strSQL .=" WHERE AlbumID = '".$_GET["AlbumID"]."' AND GalleryID = '".$_GET["GalleryID"]."' ";
 		$objQuery = mysqli_query($objCon,$strSQL);		
 		

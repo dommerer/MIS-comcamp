@@ -1,6 +1,6 @@
 <?php 
 include_once("Connections/connection.php");
-$sql = "SELECT FilesID, FilesName FROM files LIMIT 5";
+$sql = "SELECT FilesID, FilesName FROM comcamp_slids LIMIT 5";
 $resultset = mysqli_query($objCon, $sql) or die("database error:". mysqli_error($objCon));
 $image_count = 0;
 $button_html = '';		

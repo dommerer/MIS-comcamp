@@ -2,7 +2,7 @@
     session_start();
     require_once('Connections/connection.php');
 
-	if($_SESSION['customerID'] == "")
+	if($_SESSION['userID'] == "")
 	{
 		echo "Please Login!";
 		exit();
@@ -14,7 +14,7 @@
 		exit();
 	}	
 
-	$strSQL = "SELECT * FROM customer WHERE customerID = '".$_SESSION['customerID']."' ";
+	$strSQL = "SELECT * FROM comcamp_users WHERE userID = '".$_SESSION['userID']."' ";
 	$objQuery = mysqli_query($objCon,$strSQL);
     $objResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
 ?>
@@ -44,7 +44,7 @@
                         </div>
                         <div class="col-3">
                             <a href="user_profile-edit.php" class="btn btn-danger">แก้ไข</a>
-                            <a href="user_slip-show.php?customerID=<?=$objResult["customerID"];?>"
+                            <a href="user_slip-show.php?userID=<?=$objResult["userID"];?>"
                                 class="btn btn-success my-2 my-sm-2">อัพโหลดสลิป</a>&nbsp;
                         </div>
                     </div>
@@ -55,7 +55,7 @@
                                 <tr>
                                     <td width=""><b> &nbsp;User ID</td>
                                     <td width="">
-                                        <?php echo $objResult["customerID"];?>
+                                        <?php echo $objResult["userID"];?>
                                     </td>
                                 </tr>
                                 <tr>

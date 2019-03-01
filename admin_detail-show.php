@@ -9,20 +9,15 @@
     include("admin_checkadmin.php");
 
     //detail-panel
-	$sqldetail = "SELECT * FROM details";
+	$sqldetail = "SELECT * FROM comcamp_infoform1";
     $querydetail = mysqli_query($objCon,$sqldetail) or die ("Error Query [".$sqldetail."]");
     $resultdetail = mysqli_fetch_array($querydetail,MYSQLI_ASSOC);
                          
-    $sqlbenefit = "SELECT * FROM benefits";
+    $sqlbenefit = "SELECT * FROM comcamp_infoform2";
     $querybenefit = mysqli_query($objCon,$sqlbenefit) or die ("Error Query [".$sqlbenefit."]");
     $resultbenefit = mysqli_fetch_array($querybenefit,MYSQLI_ASSOC);
 
-    $sqlphotoset = "SELECT * FROM photosets";
-    $queryphotoset = mysqli_query($objCon,$sqlphotoset) or die ("Error Query [".$sqlphotoset."]");
-    $resultphotoset = mysqli_fetch_array($queryphotoset,MYSQLI_ASSOC);
-                       
-
-    $sqlregister = "SELECT * FROM registers";
+    $sqlregister = "SELECT * FROM comcamp_infoform3";
 	$queryregister = mysqli_query($objCon,$sqlregister) or die ("Error Query [".$sqlregister."]");
     $resultregister = mysqli_fetch_array($queryregister,MYSQLI_ASSOC);
 ?>
@@ -115,37 +110,7 @@
                                 </center>
                             </td>
                         </tr>
-                        <!-- photoset------------------------------------------------------------------------------------------- -->
-                        <tr>
-                            <th width="500">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <h2 align="left">ภาพกิจกรรม</h2>
-                                    </div>
-                                </div>
-                            </th>
-                            <th width="700">
-                                <div align="center">ข้อความ</div>
-                            </th>
-                            <th>
-                                <div align="center">ตัวเลือก</div>
-                            </th>
-                        </tr>
-                        <tr>
-                            <td>
-                                <center><img src="images/files-photoset/<?php echo $resultphotoset["FilesName"];?>"
-                                        width="500" height="320">
-                                </center>
-                            </td>
-                            <td>
-                                <center><?php echo $resultphotoset["Name"];?></center>
-                            </td>
-                            <td>
-                                <center><input class="btn btn-primary" type="button" value="แก้ไข"
-                                        onclick="window.location.href='admin_detail-photoset-edit.php?FilesID=<?php echo $resultphotoset['FilesID'];?>'">
-                                </center>
-                            </td>
-                        </tr>
+                        
                         <!-- register------------------------------------------------------------------------------------------- -->
                         <tr>
                             <th width="500">

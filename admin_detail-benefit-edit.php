@@ -9,7 +9,7 @@
     include("admin_checkadmin.php");
 
     //detail-panel
-    $sql = "SELECT * FROM benefits WHERE FilesID = '".$_GET["FilesID"]."' ";
+    $sql = "SELECT * FROM comcamp_infoform2 WHERE FilesID = '".$_GET["FilesID"]."' ";
 	$query = mysqli_query($objCon,$sql) or die ("Error Query [".$sql."]");
 	$result = mysqli_fetch_array($query,MYSQLI_ASSOC);
 ?>
@@ -31,6 +31,18 @@
             <?php include("admin_header.php"); ?>
             <div class="card-body">
                 <blockquote class="blockquote mb-0">
+                <div class="row">
+                        <div class="col">
+                            <?php include("admin_menu.php"); ?>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-12">
+                            <h2 align="left">รายละเอียดประโยชน์จากค่าย</h2>
+                        </div>
+                    </div>
+                    <hr>
                     <form name="form1" method="post"
                         action="admin_detail-benefit-update.php?FilesID=<?=$_GET["FilesID"];?>"
                         enctype="multipart/form-data">

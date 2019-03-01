@@ -5,12 +5,12 @@
     ini_set('display_errors', 1);
     error_reporting(~0);
 
-	if($_SESSION['customerID'] == "")
+	if($_SESSION['userID'] == "")
 	{
 		echo "Please Login!";
 		exit();
 	}
-	$strSQL = "SELECT * FROM customer WHERE customerID = '".$_SESSION['customerID']."' ";
+	$strSQL = "SELECT * FROM comcamp_users WHERE userID = '".$_SESSION['userID']."' ";
 	$objQuery = mysqli_query($objCon,$strSQL);
 	$objResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
 ?>
@@ -52,7 +52,7 @@
                                 <tr>
                                     <td width=""><b> &nbsp;User ID</td>
                                     <td width="">
-                                        <?php echo $objResult["customerID"];?>
+                                        <?php echo $objResult["userID"];?>
                                     </td>
                                 </tr>
                                 <tr>

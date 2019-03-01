@@ -1,0 +1,152 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background-color: #ffffff;
+}
+
+p {
+    font-size: 50px;
+    color: #00b0f0;
+}
+
+.font {
+    font-family: 'Mitr', sans-serif;
+}
+
+.register-button {
+    color: #00b0f0;
+    border: 2.5px solid #3b3838;
+    padding: 2vw;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10vw;
+    transition-duration: .75s;
+}
+
+.register-button:hover {
+    background-color: #00b0f0;
+    color: white;
+    transform: scale(1.2);
+}
+
+.notice1 {
+    background-color: #ffffff;
+    transition: 0.5s;
+    text-align: left;
+    border: 5px solid #3b3838;
+}
+
+.notice1:hover {
+    transform: translate(-5px, -5px);
+    transition: 0.5s;
+    box-shadow: 5px 5px #2c2b2b;
+}
+
+.iot:hover {
+    transform: scale(1.1);
+    transition: 0.75s;
+}
+
+.contact {
+    transition: 0.5s;
+}
+
+.contact:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+
+.contact-icon {
+    transform: scale(5);
+}
+
+.cloud {
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+    opacity: 0.25;
+
+}
+
+.cloudnotice {
+    transform: translate(-550px, -150px);
+}
+
+.content {
+    max-width: 1250px;
+    margin-left: auto;
+    margin-right: auto;
+    margin: auto;
+    padding: 10px;
+}
+
+.column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+
+}
+
+.column.contact {
+    width: 25%;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.qrcode {
+    border: solid #3b3838 5px;
+}
+
+.qrcode.qrzoom:hover {
+    transform: scale(2.0);
+    transition: 0.75s;
+}
+
+.qrcode.qrzoom {
+    transition: 0.75s;
+    cursor: pointer;
+}
+
+.img-about1 {
+    max-width: 100%;
+    height: auto;
+    box-shadow: 5px 5px #2c2b2b;
+    border: solid #3b3838 5px;
+}
+
+.main-title {
+    color: #00b0f0;
+    text-shadow: 3px 3px #3b3838;
+}
+
+.bank-acc {
+    color: #0040f0;
+    font-weight: bold;
+}
+
+.img-photo {
+    max-width: 100%;
+    max-height: 100%;
+    border: solid #3b3838 7px;
+    transition: 0.75s;
+}
+
+.img-photo:hover {
+    transform: scale(1.1);
+    transition: 0.75s;
+}

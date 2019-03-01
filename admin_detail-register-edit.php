@@ -9,7 +9,7 @@
     include("admin_checkadmin.php");
 
     //detail-panel
-    $sql = "SELECT * FROM registers WHERE FilesID = '".$_GET["FilesID"]."' ";
+    $sql = "SELECT * FROM comcamp_infoform3 WHERE FilesID = '".$_GET["FilesID"]."' ";
 	$query = mysqli_query($objCon,$sql) or die ("Error Query [".$sql."]");
 	$result = mysqli_fetch_array($query,MYSQLI_ASSOC);
 ?>
@@ -32,7 +32,18 @@
             <?php include("admin_header.php"); ?>
             <div class="card-body">
                 <blockquote class="blockquote mb-0">
-
+                    <div class="row">
+                        <div class="col">
+                            <?php include("admin_menu.php"); ?>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-12">
+                            <h2 align="left">รายละเอียดการลงทะเบียน</h2>
+                        </div>
+                    </div>
+                    <hr>
                     <form name="form1" method="post"
                         action="admin_detail-register-update.php?FilesID=<?=$_GET["FilesID"];?>"
                         enctype="multipart/form-data">
@@ -45,14 +56,17 @@
                                                 <tr>
                                                     <td width="100"><b> &nbsp;เลือกภาพ</td>
                                                     <td width="500">
-                                                        <input type="file" name="filUpload" OnChange="showPreview(this)">
+                                                        <input type="file" name="filUpload"
+                                                            OnChange="showPreview(this)">
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td><b> &nbsp;ข้อความ</td>
                                                     <td>
-                                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" name="txtName"><?php echo $result["Name"];?></textarea>
-                                                        
+                                                        <textarea class="form-control" id="exampleFormControlTextarea1"
+                                                            rows="5"
+                                                            name="txtName"><?php echo $result["Name"];?></textarea>
+
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -60,14 +74,18 @@
                                                     <td>
                                                         <input type="hidden" name="hdnOldFile"
                                                             value="<?php echo $result["FilesName"];?>">
-                                                        <input class="btn btn-primary" name="btnSubmit" type="submit" value="ตกลง">
-                                                        <input class="btn btn-danger" type="button" value="ยกเลิก" onclick="window.location.href='admin_detail-show.php'" />
+                                                        <input class="btn btn-primary" name="btnSubmit" type="submit"
+                                                            value="ตกลง">
+                                                        <input class="btn btn-danger" type="button" value="ยกเลิก"
+                                                            onclick="window.location.href='admin_detail-show.php'" />
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td><b> &nbsp;ตัวอย่างภาพ</td>
                                                     <td>
-                                                        <img id="imgAvatar" src="images/files-register/<?php echo $result["FilesName"];?>" width="540" height="350">
+                                                        <img id="imgAvatar"
+                                                            src="images/files-register/<?php echo $result["FilesName"];?>"
+                                                            width="540" height="350">
 
                                                     </td>
                                                 </tr>

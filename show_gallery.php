@@ -1,10 +1,10 @@
 <?php require_once('Connections/connection.php'); ?>
 <?php
-	$strSQL = "SELECT * FROM album WHERE AlbumID = '".$_GET["AlbumID"]."' ";
+	$strSQL = "SELECT * FROM comcamp_album WHERE AlbumID = '".$_GET["AlbumID"]."' ";
 	$objQuery = mysqli_query($objCon,$strSQL) or die ("Error Query [".$strSQL."]");
 	$objResult = mysqli_fetch_array($objQuery);
 
-	$strSQL2 = "SELECT * FROM gallery WHERE AlbumID = '".$_GET["AlbumID"]."' ORDER BY GalleryID ASC ";
+	$strSQL2 = "SELECT * FROM comcamp_gallery WHERE AlbumID = '".$_GET["AlbumID"]."' ORDER BY GalleryID ASC ";
 	$objQuery2 = mysqli_query($objCon,$strSQL2) or die ("Error Query [".$strSQL2."]");
 ?>
 
@@ -34,8 +34,7 @@
                     <h1><?php echo $objResult["AlbumName"];?></h1>
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    
                     <a href="index.php" class="btn btn-primary">กลับหน้าหลัก</a>
 					<br><br>
 					

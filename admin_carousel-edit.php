@@ -9,7 +9,7 @@
     include("admin_checkadmin.php");
 
     //detail-panel
-	$sql = "SELECT * FROM files WHERE FilesID = '".$_GET["FilesID"]."' ";
+	$sql = "SELECT * FROM comcamp_slids WHERE FilesID = '".$_GET["FilesID"]."' ";
 	$query = mysqli_query($objCon,$sql) or die ("Error Query [".$sql."]");
 	$result = mysqli_fetch_array($query,MYSQLI_ASSOC);
 ?>
@@ -32,7 +32,25 @@
             <?php include("admin_header.php"); ?>
             <div class="card-body">
                 <blockquote class="blockquote mb-0">
-                    <form name="form1" method="post" action="admin_carousel-update.php?FilesID=<?php echo $_GET["FilesID"];?>"
+                    <div class="row">
+                        <div class="col">
+                            <?php include("admin_menu.php"); ?>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-12">
+                            <h2 align="left">สไลด์</h2>
+                            <h5 align="left">
+                                <font color='#FF0000'>*ห้ามตั้งชื่อไฟล์ซ้ำกัน อัพโหลดภาพได้ขนาดไม่เกิน 2 MB สัดส่วนภาพ 3
+                                    : 1 </font>
+                            </h5>
+                        </div>
+                        
+                    </div>
+                    <hr>
+                    <form name="form1" method="post"
+                        action="admin_carousel-update.php?FilesID=<?php echo $_GET["FilesID"];?>"
                         enctype="multipart/form-data">
                         <div class="container">
                             <div class="row">
@@ -45,13 +63,15 @@
                                                 <tr>
                                                     <td width="100"><b> &nbsp;เลือกภาพ</td>
                                                     <td width="500">
-                                                        <input class="" type="file" name="filUpload" OnChange="showPreview(this)">
+                                                        <input class="" type="file" name="filUpload"
+                                                            OnChange="showPreview(this)">
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td><b> &nbsp;รายละเอียด</td>
                                                     <td>
-                                                        <textarea class="form-control" rows="5" name="txtName"><?php echo $result["Name"];?></textarea>
+                                                        <textarea class="form-control" rows="5"
+                                                            name="txtName"><?php echo $result["Name"];?></textarea>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -61,15 +81,17 @@
                                                             value="<?php echo $result["FilesName"];?>">
                                                         <input class="btn btn-primary" name="btnSubmit" type="submit"
                                                             value="ตกลง">
-                                                        <input class="btn btn-danger" type="button" value="ยกเลิก" onclick="window.location.href='admin_carousel-show.php'" />
+                                                        <input class="btn btn-danger" type="button" value="ยกเลิก"
+                                                            onclick="window.location.href='admin_carousel-show.php'" />
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td><b> &nbsp;ตัวอย่างภาพ</td>
-                                                    <td >
-                                                    <img id="imgAvatar" src="image/<?php echo $result["FilesName"];?>"
-                                                            width="500" height="200">
-                                                   
+                                                    <td>
+                                                        <img id="imgAvatar"
+                                                            src="image/<?php echo $result["FilesName"];?>" width="500"
+                                                            height="200">
+
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -87,4 +109,5 @@
     <script src="js/image-preview.js"></script>
     <script src="http://code.jquery.com/jquery-latest.js"></script>
 </body>
+
 </html>

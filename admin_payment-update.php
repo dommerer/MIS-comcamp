@@ -5,8 +5,8 @@
 	error_reporting(~0);
 
 	//*** Update Record ***//
-	$strSQL = "UPDATE customer SET payment = '".trim($_POST["payment"])."' 
-                WHERE customerID = '".$_POST["customerID"]."' ";
+	$strSQL = "UPDATE comcamp_users SET payment = '".trim($_POST["payment"])."' 
+                WHERE userID = '".$_POST["userID"]."' ";
     $objQuery = mysqli_query($objCon,$strSQL);
 
     header('Location:admin_payment-show.php');

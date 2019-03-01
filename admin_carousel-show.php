@@ -9,7 +9,7 @@
     include("admin_checkadmin.php");
 
     //detail-panel
-	$sql = "SELECT * FROM files";
+	$sql = "SELECT * FROM comcamp_slids";
 	$query = mysqli_query($objCon,$sql);
 ?>
 <html>

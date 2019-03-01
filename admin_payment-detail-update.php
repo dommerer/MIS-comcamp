@@ -1,7 +1,7 @@
 <?php require_once('Connections/connection.php'); ?>
 <?php
 		//*** Update Record ***//
-		$strSQL = "UPDATE photosets ";
+		$strSQL = "UPDATE comcamp_infoform4 ";
 		$strSQL .=" SET NAME = '".$_POST["txtName"]."' WHERE FilesID = '".$_GET["FilesID"]."' ";
 		$objQuery = mysqli_query($objCon,$strSQL);		
 	
@@ -13,10 +13,10 @@
 			@unlink("images/files-photoset/".$_POST["hdnOldFile"]);
 			
 			//*** Update New File ***//
-			$strSQL = "UPDATE photosets ";
+			$strSQL = "UPDATE comcamp_infoform4 ";
 			$strSQL .=" SET FilesName = '".$_FILES["filUpload"]["name"]."' WHERE FilesID = '".$_GET["FilesID"]."' ";
 			$objQuery = mysqli_query($objCon,$strSQL);		
 		}
 	}
-	header('Location: admin_detail-show.php');
+	header('Location: admin_payment-show.php');
 ?>

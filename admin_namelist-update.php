@@ -2,7 +2,7 @@
     session_start();
     require_once('Connections/connection.php');
 
-	if($_SESSION['customerID'] == "")
+	if($_SESSION['userID'] == "")
 	{
 		header('Location:alert/alert_login.php');
 		exit();
@@ -23,7 +23,7 @@
 		exit();
 	}
 	
-	$strSQL = "UPDATE customer SET
+	$strSQL = "UPDATE comcamp_users SET
 								username 	= '".trim($_POST['username'])."',
 								password 	= '".trim($_POST['password'])."',
 								firstname 	= '".trim($_POST['firstname'])."',
@@ -43,7 +43,7 @@
 								phoneteacher = '".trim($_POST['phoneteacher'])."',
 								allergic 	= '".trim($_POST['allergic'])."',
 								religion 	= '".trim($_POST['religion'])."'
-				WHERE customerID = '".$_POST["customerID"]."' ";
+				WHERE userID = '".$_POST["userID"]."' ";
 	$objQuery = mysqli_query($objCon,$strSQL);
 	
 	header('Location:admin_namelist-show.php');

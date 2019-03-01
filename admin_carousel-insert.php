@@ -27,6 +27,23 @@
             <?php include("admin_header.php"); ?>
             <div class="card-body">
                 <blockquote class="blockquote mb-0">
+                    <div class="row">
+                        <div class="col">
+                            <?php include("admin_menu.php"); ?>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-12">
+                            <h2 align="left">สไลด์</h2>
+                            <h5 align="left">
+                                <font color='#FF0000'>*ห้ามตั้งชื่อไฟล์ซ้ำกัน อัพโหลดภาพได้ขนาดไม่เกิน 2 MB สัดส่วนภาพ 3
+                                    : 1 </font>
+                            </h5>
+                        </div>
+
+                    </div>
+                    <hr>
                     <form name="form1" method="post" action="admin_carousel-upload.php" enctype="multipart/form-data">
                         <div class="container">
                             <div class="row">
@@ -50,7 +67,7 @@
                                                 <tr>
                                                     <td><b> &nbsp;ตัวเลือก</td>
                                                     <td>
-                                                        
+
                                                         <input class="btn btn-primary" name="btnSubmit" type="submit"
                                                             value="ตกลง">
                                                         <input class="btn btn-danger" type="button" value="ยกเลิก"

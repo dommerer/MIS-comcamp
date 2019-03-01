@@ -10,11 +10,11 @@
 
     //detail-panel
     //album-select
-    $albumSQL = "SELECT * FROM album WHERE AlbumID = '".$_GET["AlbumID"]."' ";
+    $albumSQL = "SELECT * FROM comcamp_album WHERE AlbumID = '".$_GET["AlbumID"]."' ";
 	$albumQuery = mysqli_query($objCon,$albumSQL) or die ("Error Query [".$albumSQL."]");
     $albumResult = mysqli_fetch_array($albumQuery);
     //gallery-select
-    $gallerySQL = "SELECT * FROM gallery WHERE AlbumID = '".$_GET["AlbumID"]."' ORDER BY GalleryID ASC ";
+    $gallerySQL = "SELECT * FROM comcamp_gallery WHERE AlbumID = '".$_GET["AlbumID"]."' ORDER BY GalleryID ASC ";
 	$galleryQuery = mysqli_query($objCon,$gallerySQL) or die ("Error Query [".$gallerySQL."]");
 ?>
 <html>

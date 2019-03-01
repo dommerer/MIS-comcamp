@@ -8,7 +8,7 @@
     include("admin_checkadmin.php");
 
     //detail-panel
-	$albumSQL = "SELECT * FROM album";
+	$albumSQL = "SELECT * FROM comcamp_album";
 	$albumQuery = mysqli_query($objCon,$albumSQL) or die ("Error Query [".$albumSQL."]");
 ?>
 <html>

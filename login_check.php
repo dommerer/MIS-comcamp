@@ -2,7 +2,7 @@
 	session_start();
 	require_once('Connections/connection.php');
 
-	$strSQL = "SELECT * FROM customer WHERE username = '".mysqli_real_escape_string($objCon,$_POST['txtUsername'])."' 
+	$strSQL = "SELECT * FROM comcamp_users WHERE username = '".mysqli_real_escape_string($objCon,$_POST['txtUsername'])."' 
 	and Password = '".mysqli_real_escape_string($objCon,$_POST['txtPassword'])."'";
 	$objQuery = mysqli_query($objCon,$strSQL);
     $objResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
@@ -13,7 +13,7 @@
 	}
 	else
 	{
-			$_SESSION["customerID"] = $objResult["customerID"];
+			$_SESSION["userID"] = $objResult["userID"];
 			$_SESSION["status"] = $objResult["status"];
 
 			session_write_close();

@@ -9,7 +9,7 @@
     include("admin_checkadmin.php");
 
     //detail-panel
-    $albumSQL = "SELECT * FROM album WHERE AlbumID = '".$_GET["AlbumID"]."' ";
+    $albumSQL = "SELECT * FROM comcamp_album WHERE AlbumID = '".$_GET["AlbumID"]."' ";
 	$albumQuery = mysqli_query($objCon,$albumSQL) or die ("Error Query [".$albumSQL."]");
 	$albumResult = mysqli_fetch_array($albumQuery);
 ?>

@@ -5,7 +5,7 @@
 	if(move_uploaded_file($_FILES["filGalleryShot"]["tmp_name"],"images/files-album/".$fileName))
 	{
 		//*** Insert Record ***//
-		$strSQL = "INSERT INTO gallery ";
+		$strSQL = "INSERT INTO comcamp_gallery ";
 		$strSQL .="(AlbumID,GalleryName,GalleryShot) VALUES ('".$_GET["AlbumID"]."','".$_POST["txtGalleryName"]."','".$fileName."')";
 		$objQuery = mysqli_query($objCon,$strSQL);		
 		mysqli_close($objCon);

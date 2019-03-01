@@ -2,7 +2,7 @@
 	require_once('Connections/connection.php');
 
 	//*** Update Record ***//
-	$strSQL = "UPDATE gallery ";
+	$strSQL = "UPDATE comcamp_gallery ";
 	$strSQL .=" SET GalleryName = '".$_POST["txtGalleryName"]."' WHERE AlbumID = '".$_GET["AlbumID"]."' AND GalleryID = '".$_GET["GalleryID"]."' ";
 	$objQuery = mysqli_query($objCon,$strSQL);		
 
@@ -16,7 +16,7 @@
 			@unlink("images/files-album/".$_POST["hdnOldFile"]);
 				
 			//*** Update New File ***//
-			$strSQL = "UPDATE gallery ";
+			$strSQL = "UPDATE comcamp_gallery ";
 			$strSQL .=" SET GalleryShot = '".$fileName."' WHERE AlbumID = '".$_GET["AlbumID"]."' AND GalleryID = '".$_GET["GalleryID"]."' ";
 			$objQuery = mysqli_query($objCon,$strSQL);				
 			}

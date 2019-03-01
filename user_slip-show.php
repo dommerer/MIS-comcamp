@@ -3,7 +3,7 @@
     session_start();
     require_once('Connections/connection.php');
 
-	if($_SESSION['customerID'] == "")
+	if($_SESSION['userID'] == "")
 	{
 		echo "Please Login!";
 		exit();
@@ -15,12 +15,12 @@
 		exit();
 	}	
 
-	$strSQL = "SELECT * FROM customer WHERE customerID = '".$_SESSION['customerID']."' ";
+	$strSQL = "SELECT * FROM comcamp_users WHERE userID = '".$_SESSION['userID']."' ";
 	$objQuery = mysqli_query($objCon,$strSQL);
     $objResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
 ?>
 <?php
-	$slipSQL = "SELECT * FROM customer WHERE customerID = '".$_GET["customerID"]."' ";
+	$slipSQL = "SELECT * FROM comcamp_users WHERE userID = '".$_GET["userID"]."' ";
 	$slipQuery = mysqli_query($objCon,$slipSQL) or die ("Error Query [".$slipSQL."]");
 	$slipResult = mysqli_fetch_array($slipQuery);
 ?>
@@ -54,7 +54,7 @@
                     </div>
                     <hr>
                     <form name="form1" method="post"
-                        action="user_slip-upload.php?customerID=<?php echo $_GET["customerID"];?>"
+                        action="user_slip-upload.php?userID=<?php echo $_GET["userID"];?>"
                         enctype="multipart/form-data">
                         <table style="width: 700px" align="center" class="table">
                             <tbody>

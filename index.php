@@ -2,7 +2,7 @@
     include_once("include/slider.php"); 
     include_once("include/detail.php");
     include_once("include/benefit.php");
-    include_once("include/photoset.php");
+    include_once("include/payment.php");
     include_once("include/register.php");
 ?>
 <!DOCTYPE html>
@@ -99,7 +99,7 @@
                 </div>
             </div>
         </div>
-        
+
     </section>
 
     <section id="benefit" class="bg-light">
@@ -123,7 +123,6 @@
                 <div class="col-lg-12 mx-auto">
                     <h1>ภาพกิจกรรม</h1>
                     <hr>
-
                     <?php include("show_album.php");?>
                 </div>
 
@@ -145,6 +144,9 @@
                         data-target=".bd-register-modal-lg">ลงทะเบียน</button>
                     <input class="btn btn-success" type="button" value="ประกาศรายชื่อผู้สมัคร"
                         onclick="window.location.href='user_announce.php';">
+                    <!-- <br><br>
+                    <h1 align="right">ดาวน์โหลดเอกสาร</h1>
+                    <hr> -->
                 </div>
             </div>
         </div>
@@ -156,27 +158,15 @@
                 <div class="col-lg-12 mx-auto">
                     <h1>การชำระเงิน</h1>
                     <hr>
-                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero odio fugiat
-                        voluptatem dolor, provident officiis, id iusto! Obcaecati incidunt, qui nihil beatae magnam et
-                        repudiandae ipsa exercitationem, in, quo totam.</p>
+                    <p class="lead">
+                        <?=$paymentResult["Name"];?>
+                    </p>
                     <form>
                         <div class="form-row align-items-center">
-
                             <div class="col-auto">
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="customFile">
-                                    <label class="custom-file-label" for="customFile">เลือกไฟล์</label>
-                                </div>
-                            </div>
-                            <div class="col-auto">
-                                <label class="sr-only" for="inlineFormInput">Name</label>
-                                <input type="text" class="form-control" id="inlineFormInput"
-                                    placeholder="ชื่อ - นามสกุล">
-                            </div>
-
-
-                            <div class="col-auto">
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button class="btn btn-success my-2 my-sm-2" type='button' data-toggle="modal"
+                                    data-target="#popUpWindow" href="#" data-toggle="modal"
+                                    data-target="#login-modal">แจ้งหลักฐานการชำระเงิน</button>
                             </div>
                         </div>
                     </form>

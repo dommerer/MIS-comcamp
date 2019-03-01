@@ -9,8 +9,12 @@ error_reporting(~0);
 include "admin_checkadmin.php";
 
 //detail-panel
-$sql = "SELECT * FROM customer";
+$sql = "SELECT * FROM comcamp_users";
 $query = mysqli_query($objCon, $sql) or die("Error Query [" . $sql . "]");
+
+$sqlpayment = "SELECT * FROM comcamp_infoform4";
+$querypayment = mysqli_query($objCon,$sqlpayment) or die ("Error Query [".$sqlpayment."]");
+$resultpayment = mysqli_fetch_array($querypayment,MYSQLI_ASSOC);
 ?>
 <html>
 
@@ -38,12 +42,12 @@ $query = mysqli_query($objCon, $sql) or die("Error Query [" . $sql . "]");
                     </div>
                     <hr>
                     <div class="row">
-                        <div class="col-10">
+                        <div class="col-9">
                             <h2 align="left">การชำระเงิน</h2>
                         </div>
-                        <div class="col-2">
-                            <input class="btn btn-success" type="button" value="การชำระเงิน"
-                                onclick="window.location.href=''" />
+                        <div class="col-3">
+                        <input class="btn btn-warning" type="button" value="แก้ไขรายละเอียดการชำระเงิน"
+                                        onclick="window.location.href='admin_payment-detail-edit.php?FilesID=<?php echo $resultpayment['FilesID'];?>'">
                         </div>
                     </div>
                     <hr>
@@ -81,11 +85,11 @@ $query = mysqli_query($objCon, $sql) or die("Error Query [" . $sql . "]");
                                 <form action="admin_payment-update.php" method="post" name="form1">
                                     <div class="row">
                                         <div class="col-8">
-                                            <input type="hidden" name="customerID" value=<?php echo $result['customerID'];?>>
+                                            <input type="hidden" name="userID" value=<?php echo $result['userID'];?>>
                                             <select class="form-control" name="payment" id="payment">
                                                 <option disabled="disabled" selected="selected">โปรดระบุ</option>
                                                 <?php
-                                                    $strSQL = "SELECT * FROM payment ORDER BY payID ASC";
+                                                    $strSQL = "SELECT * FROM comcamp_payments ORDER BY payID ASC";
                                                     $objQuery = mysqli_query($objCon,$strSQL);
                                                     while($objResult = mysqli_fetch_array($objQuery)){
                                                 ?>

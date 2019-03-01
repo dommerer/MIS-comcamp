@@ -9,7 +9,7 @@
     include("admin_checkadmin.php");
     
     //detail-panel
-    $sql = "SELECT * FROM customer";
+    $sql = "SELECT * FROM comcamp_users";
     $query = mysqli_query($objCon,$sql);
 ?>
 <html>
@@ -102,10 +102,10 @@
 
                                 <td align="center">
                                     <input class="btn btn-primary" type="button" value="แก้ไข"
-                                        onclick="window.location.href='admin_namelist-edit.php?customerID=<?php echo $result['customerID'];?>'">
+                                        onclick="window.location.href='admin_namelist-edit.php?userID=<?php echo $result['userID'];?>'">
 
                                     <input class="btn btn-danger" type="button" value="ลบ"
-                                        onclick="JavaScript:if(confirm('Confirm Delete?')==true){window.location='admin_namelist-delete.php?customerID=<?php echo $result['customerID'];?>';}">
+                                        onclick="JavaScript:if(confirm('Confirm Delete?')==true){window.location='admin_namelist-delete.php?userID=<?php echo $result['userID'];?>';}">
                                 </td>
                             </tr>
                             <?php

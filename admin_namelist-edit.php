@@ -8,14 +8,14 @@
     //check-admin-panel
     include("admin_checkadmin.php");
 
-    $strCustomerID = null;
+    $strUserID = null;
 
-    if(isset($_GET["customerID"]))
+    if(isset($_GET["userID"]))
     {
-        $strCustomerID = $_GET["customerID"];
+        $strUserID = $_GET["userID"];
     }
      //detail-panel
-     $sql = "SELECT * FROM customer WHERE customerID = '".$strCustomerID."' ";
+     $sql = "SELECT * FROM comcamp_users WHERE userID = '".$strUserID."' ";
      $query = mysqli_query($objCon,$sql)or die ("Error Query [".$sql."]");
      $result = mysqli_fetch_array($query,MYSQLI_ASSOC);
 ?>
@@ -39,13 +39,31 @@
             <?php include("admin_header.php"); ?>
             <div class="card-body">
                 <blockquote class="blockquote mb-0">
+                <div class="row ">
+                        <div class="col">
+                            <?php include("admin_menu.php"); ?>
+                        </div>
+                    </div>
                     <form name="form1" method="post" action="admin_namelist-update.php">
+                    <hr>
+                        <div class="row">
+                            <div class="col-9">
+                                <h2 align="left">แก้ไขรายชื่อ</h2>
+                            </div>
+                            <div class="col-3">
+                            <button class="btn btn-danger" type="submit" name="Submit" value="Save">ยืนยัน</button>
+                            &nbsp;
+                            <input class="btn btn-primary" type="button" value="ยกเลิก"
+                                onclick="window.location.href='admin_namelist-show.php'" />
+                            </div>
+                        </div>
+                        <hr>
                         <table style="width: 800px" align="center" class="table">
                             <tbody>
                                 <tr>
                                     <td width=""><b> &nbsp;User ID</td>
-                                    <td width=""><input type="hidden" name="customerID" value="<?php echo $result["customerID"];?>">
-                                        <?php echo $result["customerID"];?>
+                                    <td width=""><input type="hidden" name="userID" value="<?php echo $result["userID"];?>">
+                                        <?php echo $result["userID"];?>
                                     </td>
                                 </tr>
                                 <tr>
@@ -207,10 +225,7 @@
                             </tbody>
                         </table>
                         <div class="input-group" align="center">
-                            <button class="btn btn-danger" type="submit" name="Submit" value="Save">ยืนยัน</button>
-                            &nbsp;
-                            <input class="btn btn-primary" type="button" value="ยกเลิก"
-                                onclick="window.location.href='admin_namelist-show.php'" />
+                           
 
                         </div>
                     </form>

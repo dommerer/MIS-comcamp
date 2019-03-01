@@ -9,8 +9,8 @@
 			@unlink("images/slip/".$_POST["hdnOldFile"]);
 			
 			//*** Update New File ***//
-			$strSQL = "UPDATE customer ";
-			$strSQL .=" SET slip = '".$_FILES["filUpload"]["name"]."' WHERE customerID = '".$_GET["customerID"]."' ";
+			$strSQL = "UPDATE comcamp_users ";
+			$strSQL .=" SET slip = '".$_FILES["filUpload"]["name"]."' WHERE userID = '".$_GET["userID"]."' ";
 			$objQuery = mysqli_query($objCon,$strSQL);		
 		}
 	}

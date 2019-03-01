@@ -1,7 +1,7 @@
 <?php require_once('Connections/connection.php'); ?>
 
 <?php
-	$strSQL = "SELECT * FROM album";
+	$strSQL = "SELECT * FROM comcamp_album";
 	$objQuery = mysqli_query($objCon,$strSQL) or die ("Error Query [".$strSQL."]");
 	echo"<table border=\"0\"  cellspacing=\"1\" cellpadding=\"10\"><tr>";
 	$intRows = 0;

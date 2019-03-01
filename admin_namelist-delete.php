@@ -4,9 +4,9 @@
 	ini_set('display_errors', 1);
 	error_reporting(~0);
 	
-	$strCustomerID = $_GET["customerID"];
-	$strSQL = "DELETE FROM customer
-			WHERE customerID = '".$strCustomerID."' ";
+	$strUserID = $_GET["userID"];
+	$strSQL = "DELETE FROM comcamp_users
+			WHERE userID = '".$strUserID."' ";
 
 	$query = mysqli_query($objCon,$strSQL);
 

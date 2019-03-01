@@ -2,7 +2,7 @@
     $hostname = "localhost";
     $username = "root";
     $password = "12345678";
-    $database = "comcamp";
+    $database = "jowaveco_csmju";
     $objCon = mysqli_connect($hostname,$username,$password,$database)or die("Connection failed: " . mysqli_connect_error());
     mysqli_query($objCon,"SET CHARACTER SET UTF8");
     if (mysqli_connect_errno()) {
