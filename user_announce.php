@@ -13,6 +13,7 @@
 <html >
 
 <head>
+<?php include_once("include/title-favicon.php"); ?>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
     <!-- Bootstrap core CSS -->
@@ -20,7 +21,6 @@
     <!-- Custom CSS -->
     <link href="css/font.css" rel="stylesheet">
 
-    <title>ANNOUNCE</title>
 
 </head>
 
@@ -99,7 +99,7 @@
     <br>
 
     <!-- Login Modal -->
-    <?php include("login.php"); ?>
+    <?php include("user_login.php"); ?>
 
     <!-- Register modal -->
     <?php include("user_register.php"); ?>

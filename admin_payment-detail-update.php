@@ -1,8 +1,12 @@
 <?php require_once('Connections/connection.php'); ?>
 <?php
 		//*** Update Record ***//
-		$strSQL = "UPDATE comcamp_infoform4 ";
-		$strSQL .=" SET NAME = '".$_POST["txtName"]."' WHERE FilesID = '".$_GET["FilesID"]."' ";
+		$strSQL = "UPDATE comcamp_infoform4  SET 
+					Name 		= '".trim($_POST["txtName"])."',
+					NoAccount 	= '".trim($_POST['txtNoAccount'])."',
+					BankName 	= '".trim($_POST['txtBankName'])."',
+					Detail 		= '".trim($_POST['txtDetail'])."'
+					WHERE FilesID = '".$_GET["FilesID"]."' ";
 		$objQuery = mysqli_query($objCon,$strSQL);		
 	
 	if($_FILES["filUpload"]["name"] != "")

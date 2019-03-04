@@ -1,15 +1,15 @@
 <?php
-    if($_SESSION['userID'] == "")
+    if($_SESSION['Student_Id'] == "")
 	{
-		echo "Please Login!";
+		header("location:alert/alert_admin-login.php");
 		exit();
 	}
-	if($_SESSION['status'] != "admin")
+	if($_SESSION['Status'] != "admin")
 	{
-		echo "This page for Admin only!";
+		header("location:alert/alert_admin-page.php");
 		exit();
 	}	
-	$strSQL = "SELECT * FROM comcamp_users WHERE userID = '".$_SESSION['userID']."' ";
+	$strSQL = "SELECT * FROM comcamp_students WHERE Student_Id = '".$_SESSION['Student_Id']."' ";
 	$objQuery = mysqli_query($objCon,$strSQL);
     $objResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
 ?>

@@ -27,13 +27,13 @@
 <html>
 
 <head>
-
+    <?php include_once("include/title-favicon.php"); ?>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="css/font.css" rel="stylesheet">
-    <title></title>
+
 </head>
 
 <body class="kanit-font">
@@ -43,18 +43,17 @@
             <?php include("user_header.php"); ?>
             <div class="card-body">
                 <blockquote class="blockquote mb-0">
-                <div class="row">
+                    <div class="row">
                         <div class="col-9">
                             <h2 align="left">อัพโหลดสลิป</h2>
                         </div>
                         <div class="col-3">
-                        
-                        <a href="user_page.php" class="btn btn-success my-2 my-sm-2">กลับหน้าข้อมูลส่วนตัว</a>
+
+                            <a href="user_page.php" class="btn btn-success my-2 my-sm-2">กลับหน้าข้อมูลส่วนตัว</a>
                         </div>
                     </div>
                     <hr>
-                    <form name="form1" method="post"
-                        action="user_slip-upload.php?userID=<?php echo $_GET["userID"];?>"
+                    <form name="form1" method="post" action="user_slip-upload.php?userID=<?php echo $_GET["userID"];?>"
                         enctype="multipart/form-data">
                         <table style="width: 700px" align="center" class="table">
                             <tbody>
@@ -63,6 +62,7 @@
                                     <td width="500">
                                         <input class="" type="file" name="filUpload" OnChange="showPreview(this)">
                                     </td>
+                    
                                 </tr>
                                 <tr>
                                     <td><b> &nbsp;ตัวเลือก</td>

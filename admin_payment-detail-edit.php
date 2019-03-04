@@ -16,7 +16,7 @@
 <html>
 
 <head>
-    <title></title>
+<?php include_once("include/title-favicon.php"); ?>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
     <!-- Bootstrap core CSS -->
@@ -55,11 +55,34 @@
                                             <tbody>
 
                                                 <tr>
-                                                    <td><b> &nbsp;ข้อความ</td>
+                                                    <td><b> &nbsp;ชื่อบัญชี</td>
                                                     <td>
-                                                        <textarea class="form-control" id="exampleFormControlTextarea1"
-                                                            rows="5"
-                                                            name="txtName"><?php echo $result["Name"];?></textarea>
+                                                        <input class="form-control" id="txtName" name="txtName" value="<?php echo $result["Name"];?>">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><b> &nbsp;เลขที่บัญชี</td>
+                                                    <td>
+                                                        <input class="form-control" id="txtNoAccount" name="txtNoAccount" value="<?php echo $result["NoAccount"];?>">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><b> &nbsp;ธนาคาร</td>
+                                                    <td>
+                                                        <input class="form-control" id="txtBankName" name="txtBankName" value="<?php echo $result["BankName"];?>">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><b> &nbsp;รายละเอียด</td>
+                                                    <td>
+                                                        <input class="form-control" id="txtDetail" name="txtDetail" value="<?php echo $result["Detail"];?>">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="100"><b> &nbsp;เลือกภาพ</td>
+                                                    <td width="500">
+                                                        <input type="file" name="filUpload"
+                                                            OnChange="showPreview(this)">
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -73,7 +96,14 @@
                                                             onclick="window.location.href='admin_payment-show.php'" />
                                                     </td>
                                                 </tr>
-
+                                                <tr>
+                                                    <td><b> &nbsp;ตัวอย่างภาพ</td>
+                                                    <td>
+                                                        <img id="imgAvatar"
+                                                            src="images/files-photoset/<?php echo $result["FilesName"];?>"
+                                                            width="540" height="350">
+                                                    </td>
+                                                </tr>
                                             </tbody>
                                         </table>
                                     </div>

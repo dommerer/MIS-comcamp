@@ -15,7 +15,7 @@
 <html>
 
 <head>
-    <title>ADMIN</title>
+<?php include_once("include/title-favicon.php"); ?>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
     <!-- Bootstrap core CSS -->
@@ -40,12 +40,14 @@
                     <form name="form1" method="post" action="save_profile.php">
                         <hr>
                         <div class="row">
-                            <div class="col-10">
+                            <div class="col-8">
                                 <h2 align="left">รายชื่อผู้เข้าร่วม</h2>
                             </div>
-                            <div class="col-2">
+                            <div class="col-4">
                                 <input class="btn btn-success" type="button" value="เพิ่มรายชื่อ"
-                                    onclick="window.location.href='admin_namelist-insert.php'" />&nbsp;
+                                    onclick="window.location.href='admin_namelist-insert.php'" />
+                                <input class="btn btn-warning" type="button" value="ข้อมูลรายชื่อทั้งหมด"
+                                    onclick="window.location.href='admin_namelist-total.php'" />&nbsp;
                             </div>
                         </div>
                         <hr>

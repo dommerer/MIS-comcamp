@@ -7,14 +7,15 @@
 	
 	if($_FILES["filUpload"]["name"] != "")
 	{
-		if(move_uploaded_file($_FILES["filUpload"]["tmp_name"],"image/".$_FILES["filUpload"]["name"]))
+		$fileName = date("YmdHis")."_".$_FILES["filUpload"]["name"];
+		if(move_uploaded_file($_FILES["filUpload"]["tmp_name"],"images/slide/".$fileName))
 		{
 			//*** Delete Old File ***//			
-			@unlink("image/".$_POST["hdnOldFile"]);
+			@unlink("images/slide/".$_POST["hdnOldFile"]);
 			
 			//*** Update New File ***//
 			$strSQL = "UPDATE comcamp_slids ";
-			$strSQL .=" SET FilesName = '".$_FILES["filUpload"]["name"]."' WHERE FilesID = '".$_GET["FilesID"]."' ";
+			$strSQL .=" SET FilesName = '".$fileName."' WHERE FilesID = '".$_GET["FilesID"]."' ";
 			$objQuery = mysqli_query($objCon,$strSQL);		
 		}
     }

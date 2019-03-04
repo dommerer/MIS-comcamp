@@ -11,7 +11,7 @@
 <html>
 
 <head>
-    <title></title>
+<?php include_once("include/title-favicon.php"); ?>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
     <!-- Bootstrap core CSS -->
@@ -51,7 +51,6 @@
                             <img src="images/files-album/<?php echo $objResult2["GalleryShot"];?>" width="240"
                                 height="180">
                         </a>
-
                     </center>
                     <?php
 						echo"</td>";

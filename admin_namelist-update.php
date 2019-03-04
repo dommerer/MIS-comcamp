@@ -2,11 +2,6 @@
     session_start();
     require_once('Connections/connection.php');
 
-	if($_SESSION['userID'] == "")
-	{
-		header('Location:alert/alert_login.php');
-		exit();
-	}
 	if(trim($_POST["username"]) == "")
 	{
 		header('Location:alert/alert_username.php');

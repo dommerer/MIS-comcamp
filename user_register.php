@@ -1,4 +1,5 @@
-<div class="modal fade bd-register-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade bd-register-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -187,13 +188,13 @@
                         <br>
                         <div class="row row-space">
                             <div class="col-12">
-                                <div class="from-group">
-                                    <label class="checkbox-inline">
-                                        <input type="checkbox" name="status" value="user" required>
-                                        <input type="hidden" id="payment" name="payment" value="2">
-                                        ข้อมูลข้างต้นเป็นความจริงทุกประการ
-                                    </label>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="status" name="status"
+                                        value="user" required>
+                                    <label class="custom-control-label"
+                                        for="status">ข้อมูลข้างต้นเป็นความจริงทุกประการ</label>
                                 </div>
+                                <input type="hidden" id="payment" name="payment" value="2">
                             </div>
                         </div>
                     </div>

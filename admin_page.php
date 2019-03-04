@@ -11,7 +11,7 @@
 <html>
 
 <head>
-    <title>ADMIN</title>
+<?php include("include/title-favicon.php"); ?>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
     <!-- Bootstrap core CSS -->
@@ -34,7 +34,7 @@
                     </div>
                     <hr>
                     <div class="jumbotron">
-                        <h1 class="display-4">สวัสดี.. คุณ <?php echo $objResult["firstname"];?></h1>
+                        <h1 class="display-4">สวัสดี.. คุณ <?php echo $objResult["Name"];?></h1>
                         <p class="lead">ระบบการจัดการโครงการสัมมนาเชิงปฏิบัติการ ค่ายยุวชนคอมพิวเตอร์ <br>สาขาวิทยาการคอมพิวเตอร์ คณะวิทยาศาสตร์ มหาวิทยาลัยแม่โจ้</p>
                         <p class="lead"></p>
                         <hr class="my-4">

@@ -16,7 +16,7 @@ while( $rows = mysqli_fetch_assoc($resultset)){
 		
 	// slider image html
 	$slider_html.= "<div class='carousel-item ".$active_class."'>";
-    $slider_html.= "<img src='image/".$rows['FilesName']."' alt='1.jpg' class='img-responsive'>";
+    $slider_html.= "<img src='images/slide/".$rows['FilesName']."' alt='1.jpg' class='img-responsive'>";
     $slider_html.= "<div class='carousel-caption d-none d-md-block'></div></div>";
 	
 	// Button html

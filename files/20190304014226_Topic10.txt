@@ -1,0 +1,349 @@
+Access Point(AP) for Wireless LAN ---> OSI Layer ?
+Select one:
+a. 3
+b. 2
+c. 1 Correct
+d. 4
+
+Application layer ---> OSI Layer ?
+Select one:
+a. 4
+b. 5
+c. 7 Correct
+d. 6
+
+ARP ---> OSI Layer ?
+Select one:
+a. 5
+b. 3 Correct
+c. 6
+d. 4
+
+Bridge ---> OSI Layer ?
+Select one:
+a. 3
+b. 4
+c. 2 Correct
+d. 1
+
+Coaxial Cable ---> OSI Layer ?
+Select one:
+a. 3
+b. 1 Correct
+c. 2
+d. 4
+
+Could ---> OSI Layer ?
+Select one:
+a. 1-7 Correct
+b. 1-2
+c. 1-3
+d. 4-7
+
+Data Compression ---> OSI Layer ?
+Select one:
+a. 4
+b. 6 Correct
+c. 5
+d. 3
+
+Data link layer ---> OSI Layer ?
+Select one:
+a. 2 Correct
+b. 3
+c. 4
+d. 1
+
+Ethernet Switching ---> OSI Layer ?
+Select one:
+a. 4
+b. 1
+c. 2 Correct
+d. 3
+
+Facebook ---> OSI Layer ?
+Select one:
+a. 6
+b. 5
+c. 4
+d. 7 Correct
+
+Fiber Optic ---> OSI Layer ?
+Select one:
+a. 3
+b. 4
+c. 1 Correct
+d. 2
+
+FTP Software ---> OSI Layer ?
+Select one:
+a. 4
+b. 6
+c. 7 Correct
+d. 5
+
+Hub ---> OSI Layer ?
+Select one:
+a. 2
+b. 4
+c. 3
+d. 1 Correct
+
+ICMP ---> OSI Layer ?
+Select one:
+a. 1
+b. 2
+c. 4
+d. 3 Correct
+
+Internet Web browser ---> OSI Layer ?
+Select one:
+a. 5
+b. 4
+c. 7 Correct
+d. 6
+
+IP ---> OSI Layer ?
+Select one:
+a. 1
+b. 2
+c. 3 Correct
+d. 4
+
+IPX ---> OSI Layer ?
+Select one:
+a. 6
+b. 4
+c. 5
+d. 3 Correct
+
+LLC ---> OSI Layer ?
+Select one:
+a. 1
+b. 2 Correct
+c. 4
+d. 3
+
+MAC Address ---> OSI Layer ?
+Select one:
+a. 3
+b. 1
+c. 2 Correct
+d. 4
+
+MAC address ---> OSI Layer ?
+Select one:
+a. 3
+b. 2 Correct
+c. 4
+d. 1
+
+NetBIOS ---> OSI Layer ?
+Select one:
+a. 1
+b. 2
+c. 4
+d. 3 Correct
+
+Network layer ---> OSI Layer ?
+Select one:
+a. 2
+b. 1
+c. 4
+d. 3 Correct
+
+Network Media or Cable ---> OSI Layer ?
+Select one:
+a. 2
+b. 3
+c. 4
+d. 1 Correct
+
+NFS ---> OSI Layer ?
+Select one:
+a. 6
+b. 3
+c. 5 Correct
+d. 4
+
+NIC ---> OSI Layer ?
+Select one:
+a. 1
+b. 3
+c. 4
+d. 2 Correct
+
+Outlook E-mail ---> OSI Layer ?
+Select one:
+a. 6
+b. 4
+c. 7 Correct
+d. 5
+
+PC ---> OSI Layer ?
+Select one:
+a. 1-3
+b. 1-2
+c. 4-7
+d. 1-7 Correct
+
+PDU : Bit transmission ---> OSI Layer ?
+Select one:
+a. 2
+b. 3
+c. 4
+d. 1 Correct
+
+PDU : Data ---> OSI Layer ?
+Select one:
+a. 4-7
+b. 1-3
+c. 5-7 Correct
+d. 1-2
+
+PDU : frame ---> OSI Layer ?
+Select one:
+a. 1
+b. 3
+c. 4
+d. 2 Correct
+
+PDU : packet ---> OSI Layer ?
+Select one:
+a. 3 Correct
+b. 2
+c. 4
+d. 1
+
+PDU : Segment ---> OSI Layer ?
+Select one:
+a. 1
+b. 3
+c. 2
+d. 4 Correct
+
+Physical address ---> OSI Layer ?
+Select one:
+a. 4
+b. 2 Correct
+c. 3
+d. 1
+
+Physical layer ---> OSI Layer ?
+Select one:
+a. 2
+b. 3
+c. 4
+d. 1 Correct
+
+Presentation layer ---> OSI Layer ?
+Select one:
+a. 7
+b. 6	ทำตอบจริงๆ
+c. 5
+d. 4    ไม่มีข้อถูกลองทุกข้อแล้ว
+
+Printer Server ---> OSI Layer ?
+Select one:
+a. 1-7 Correct
+b. 1-3
+c. 1-2
+d. 4-7
+
+RARP ---> OSI Layer ?
+Select one:
+a. 3 Correct
+b. 5
+c. 6
+d. 4
+
+Repeater device ---> OSI Layer ?
+Select one:
+a. 1 Correct
+b. 4
+c. 2
+d. 3
+
+RJ45 ---> OSI Layer ?
+Select one:
+a. 4
+b. 1 Correct
+c. 2
+d. 3
+
+Router ---> OSI Layer ?
+Select one:
+a. 4
+b. 1
+c. 3 Correct
+d. 2
+
+RPC(Remote Procedure Control) ---> OSI Layer ?
+Select one:
+a. 6
+b. 5 Correct
+c. 7
+d. 4
+
+Server ---> OSI Layer ?
+Select one:
+a. 1-7 Correct
+b. 1-2
+c. 1-3
+d. 4-7
+
+Session layer ---> OSI Layer ?
+Select one:
+a. 7
+b. 6
+c. 4
+d. 5 Correct
+
+SPX ---> OSI Layer ?
+Select one:
+a. 2
+b. 3 Correct
+c. 4
+d. 1
+
+SQL ---> OSI Layer ?
+Select one:
+a. 2
+b. 5 Correct
+c. 3
+d. 4
+
+TCP ---> OSI Layer ?
+Select one:
+a. 1
+b. 3
+c. 4 Correct
+d. 2
+
+Telnet, SSH Software ---> OSI Layer ?
+Select one:
+a. 5
+b. 4
+c. 7 Correct
+d. 6
+
+Transport layer ---> OSI Layer ?
+Select one:
+a. 1
+b. 4 Correct
+c. 2
+d. 3
+
+UDP ---> OSI Layer ?
+Select one:
+a. 2
+b. 4 Correct
+c. 1
+d. 3
+
+UTP cable ---> OSI Layer ?
+Select one:
+a. 1 Correct
+b. 4
+c. 2
+d. 3

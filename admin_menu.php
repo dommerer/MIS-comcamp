@@ -1,12 +1,16 @@
-
 <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
     <input type="button" class="btn btn-secondary" value="หน้าแรก" onclick="window.location.href='admin_page.php';">
-    <input type="button" class="btn btn-secondary" value="รายชื่อผู้เข้าร่วม" onclick="window.location.href='admin_namelist-show.php';">
-    <input type="button" class="btn btn-secondary" value="สไลด์" onclick="window.location.href='admin_carousel-show.php';">
-    <input type="button" class="btn btn-secondary" value="รายละเอียด" onclick="window.location.href='admin_detail-show.php';">
-    <input type="button" class="btn btn-secondary" value="อัลบั้มภาพ" onclick="window.location.href='admin_album-view.php';">
-    <input type="button" class="btn btn-secondary" value="การชำระเงิน" onclick="window.location.href='admin_payment-show.php';">
-    
+    <input type="button" class="btn btn-secondary" value="รายชื่อผู้เข้าร่วม"
+        onclick="window.location.href='admin_namelist-show.php';">
+    <input type="button" class="btn btn-secondary" value="สไลด์"
+        onclick="window.location.href='admin_carousel-show.php';">
+    <input type="button" class="btn btn-secondary" value="รายละเอียด"
+        onclick="window.location.href='admin_detail-show.php';">
+    <input type="button" class="btn btn-secondary" value="เอกสาร" onclick="window.location.href='admin_file-show.php';">
+    <input type="button" class="btn btn-secondary" value="อัลบั้มภาพ"
+        onclick="window.location.href='admin_album-view.php';">
+    <input type="button" class="btn btn-secondary" value="การชำระเงิน"
+        onclick="window.location.href='admin_payment-show.php';">
 
     <div class="btn-group" role="group">
         <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"

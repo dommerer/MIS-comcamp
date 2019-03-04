@@ -14,7 +14,7 @@
 <html>
 
 <head>
-    <title></title>
+    <?php include_once("include/title-favicon.php"); ?>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
     <!-- Bootstrap core CSS -->

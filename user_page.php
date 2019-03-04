@@ -4,13 +4,13 @@
 
 	if($_SESSION['userID'] == "")
 	{
-		echo "Please Login!";
+		header("location:alert/alert_login.php");
 		exit();
 	}
 
 	if($_SESSION['status'] != "user")
 	{
-		echo "This page for User only!";
+		header("location:alert/alert_user-page.php");
 		exit();
 	}	
 
@@ -22,13 +22,12 @@
 <html>
 
 <head>
+<?php include_once("include/title-favicon.php"); ?>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="css/font.css" rel="stylesheet">
-
-    <title>User</title>
 </head>
 
 <body class="kanit-font">
@@ -45,7 +44,7 @@
                         <div class="col-3">
                             <a href="user_profile-edit.php" class="btn btn-danger">แก้ไข</a>
                             <a href="user_slip-show.php?userID=<?=$objResult["userID"];?>"
-                                class="btn btn-success my-2 my-sm-2">อัพโหลดสลิป</a>&nbsp;
+                                class="btn btn-warning my-2 my-sm-2">แจ้งการชำระเงิน</a>&nbsp;
                         </div>
                     </div>
                     <hr>
@@ -53,14 +52,8 @@
                         <table style="width: 800px" align="center" class="table">
                             <tbody>
                                 <tr>
-                                    <td width=""><b> &nbsp;User ID</td>
+                                    <td width=""><b> &nbsp;ชื่อผู้ใช้งาน</td>
                                     <td width="">
-                                        <?php echo $objResult["userID"];?>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><b> &nbsp;ชื่อผู้ใช้งาน</td>
-                                    <td>
                                         <?php echo $objResult["username"];?>
                                     </td>
                                 </tr>
@@ -168,8 +161,8 @@
                             </tbody>
                         </table>
                     </form>
-                    <footer class="blockquote-footer">ข้อมูลข้างต้นเป็นแค่ส่วนประกอบที่ใช้สำหรับกิจกรรมภายในค่ายเท่านั้น
-                        <cite title="Source Title">Source Title</cite>
+                    <footer class="blockquote-footer">
+                        <cite title="Source Title">ข้อมูลข้างต้นเป็นแค่ส่วนประกอบที่ใช้สำหรับกิจกรรมภายในค่ายเท่านั้น</cite>
                     </footer>
                 </blockquote>
             </div>

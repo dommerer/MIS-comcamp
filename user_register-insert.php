@@ -2,33 +2,28 @@
     require_once('Connections/connection.php');
 	if(trim($_POST["username"]) == "")
 	{
-		echo "Please input Username!";
+		header("location:alert/alert_username.php");
 		exit();	
 	}
 	
 	if(trim($_POST["password"]) == "")
 	{
-		echo "Please input Password!";
+		header("location:alert/alert_password.php");
 		exit();	
 	}	
 		
 	if($_POST["password"] != $_POST["conpassword"])
 	{
-		echo "Password not Match!";
+		header("location:alert/alert_password-notmatch.php");
 		exit();
 	}
 	
-	if(trim($_POST["firstname"]) == "")
-	{
-		echo "Please input Name!";
-		exit();	
-	}	
     $strSQL = "SELECT * FROM comcamp_users WHERE username = '".trim($_POST['username'])."' ";
 	$objQuery = mysqli_query($objCon,$strSQL);
 	$objResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
 	if($objResult)
 	{
-			echo "Username already exists!";
+		header("location:alert/alert_username-already.php");
 	}
 	else
 	{	
@@ -58,7 +53,7 @@
                             '".$_POST["status"]."',
 							'".$_POST["payment"]."')";
         $objQuery = mysqli_query($objCon,$strSQL);
-		header('Location:user_page.php');
+		header('Location:alert/alert_register-save.php');
 	}
 	mysqli_close($objCon);
 ?>

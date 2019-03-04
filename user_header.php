@@ -1,7 +1,7 @@
 <div class="card-header">
     <div class="row row-space">
         <div class="col-8">
-            <h1>ยินดีตอนรับ</h2>
+            <h1>ยินดีต้อนรับ</h2>
                 <h5>โครงการสัมมนาเชิงปฏิบัติการ ค่ายยุวชนคอมพิวเตอร์ </h5>
         </div>
         <div class="col-4">
@@ -16,10 +16,10 @@
                 </p>
             </div>
             <div class="input-group">
-                <input class="btn btn-primary" type="button" value="คอมแคมป์"
+                <input class="btn btn-outline-success" type="button" value="คอมแคมป์"
                     onclick="window.location.href='index.php';">&nbsp;
                 <input class="btn btn-dark" type="button" value="ออกจากระบบ"
-                    onclick="window.location.href='logout.php';">
+                    onclick="window.location.href='user_logout.php';">
             </div>
         </div>
     </div>

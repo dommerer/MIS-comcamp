@@ -15,7 +15,7 @@
 <html>
 
 <head>
-    <title></title>
+    <?php include_once("include/title-favicon.php"); ?>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
     <!-- Bootstrap core CSS -->
@@ -41,8 +41,7 @@
                         <div class="col-10">
                             <h2 align="left">สไลด์</h2>
                             <h5 align="left">
-                                <font color='#FF0000'>*ห้ามตั้งชื่อไฟล์ซ้ำกัน อัพโหลดภาพได้ขนาดไม่เกิน 2 MB สัดส่วนภาพ 3
-                                    : 1 </font>
+                                <font color='#FF0000'>*อัตราส่วนภาพ 3 : 1 </font>
                             </h5>
                         </div>
                         <div class="col-2">
@@ -78,12 +77,12 @@
                                 <div align="center"><?php echo $item++; ?></div>
                             </td>
                             <td>
-                                <center><img src="image/<?php echo $result["FilesName"];?>" width="500" height="200">
+                                <center><img src="images/slide/<?php echo $result["FilesName"];?>" width="500" height="200">
                                 </center>
                             </td>
                             <td>
-                                <b>ชื่อไฟล์:</b><br>
                                 <left>
+                                    <b>ชื่อไฟล์:</b><br>
                                     <p><?php echo $result["FilesName"];?></p>
 
                                     <b>รายละเอียด:</b><br>

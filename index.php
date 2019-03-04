@@ -4,18 +4,14 @@
     include_once("include/benefit.php");
     include_once("include/payment.php");
     include_once("include/register.php");
+    include_once("include/file.php");
 ?>
 <!DOCTYPE html>
 <html>
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../../../favicon.ico">
-    <title></title>
+
+    <?php include_once("include/title-favicon.php"); ?>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -24,6 +20,8 @@
     <link href="css/scrolling-nav.css" rel="stylesheet">
     <link href="css/carousel.css" rel="stylesheet">
     <link href="css/font.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/footer-distributed.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 
 </head>
 
@@ -56,7 +54,7 @@
                     <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#payment">การชำระเงิน</a>
                 </li>
                 <li class="nav-item mx-0 mx-lg-1">
-                    <button class="btn btn-success my-2 my-sm-2" type='button' data-toggle="modal"
+                    <button class="btn btn-outline-success my-2 my-sm-2" type='button' data-toggle="modal"
                         data-target="#popUpWindow" href="#" data-toggle="modal"
                         data-target="#login-modal">เข้าสู่ระบบ</button>
                 </li>
@@ -108,7 +106,7 @@
                 <div class="col-lg-6">
                     <img src="images/files-benefit/<?=$benefitResult["FilesName"];?>" width="540" height="350">
                 </div>
-                <div class="col-lg-6 mx-auto">
+                <div class="col-lg-6">
                     <h1 align="right">ประโยชน์จากค่าย</h1>
                     <hr>
                     <p class="lead" align="right"><?=$benefitResult["Name"];?></p>
@@ -136,7 +134,7 @@
                 <div class="col-lg-6">
                     <img src="images/files-register/<?=$registerResult["FilesName"];?>" width="540" height="350">
                 </div>
-                <div class="col-lg-6 mx-auto">
+                <div class="col-lg-6">
                     <h1 align="right">ลงทะเบียน</h1>
                     <hr>
                     <p class="lead" align="right"><?=$registerResult["Name"];?></p>
@@ -144,9 +142,23 @@
                         data-target=".bd-register-modal-lg">ลงทะเบียน</button>
                     <input class="btn btn-success" type="button" value="ประกาศรายชื่อผู้สมัคร"
                         onclick="window.location.href='user_announce.php';">
-                    <!-- <br><br>
-                    <h1 align="right">ดาวน์โหลดเอกสาร</h1>
-                    <hr> -->
+                    <br><br>
+                    <h1 align="right">ดาวน์โหลด</h1>
+                    <hr>
+                    <p class="lead">
+                        <a class="btn btn-outline-primary" target="_blank"
+                            href="files/<?php echo $file1Result["FilesName"];?>">
+                            <?php echo $file1Result["Name"];?>
+                        </a>
+                        <a class="btn btn-outline-primary" target="_blank"
+                            href="files/<?php echo $file2Result["FilesName"];?>">
+                            <?php echo $file2Result["Name"];?>
+                        </a>
+                        <a class="btn btn-outline-primary" target="_blank"
+                            href="files/<?php echo $file3Result["FilesName"];?>">
+                            <?php echo $file3Result["Name"];?>
+                        </a>
+                    </p>
                 </div>
             </div>
         </div>
@@ -155,12 +167,15 @@
     <section id="payment">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 mx-auto">
+                <div class="col-lg-6">
                     <h1>การชำระเงิน</h1>
                     <hr>
-                    <p class="lead">
-                        <?=$paymentResult["Name"];?>
-                    </p>
+                    <b>ชื่อบัญชี:</b>
+                    <p class="lead"><?=$paymentResult["Name"];?></p>
+                    <b>เลขที่บัญชี:</b>
+                    <p class="lead"><?=$paymentResult["NoAccount"];?></p>
+                    <b>ชื่อธนาคาร:</b>
+                    <p class="lead"><?=$paymentResult["BankName"];?></p>
                     <form>
                         <div class="form-row align-items-center">
                             <div class="col-auto">
@@ -171,19 +186,58 @@
                         </div>
                     </form>
                 </div>
+                <div class="col-lg-6">
+                    <img src="images/files-photoset/<?=$paymentResult["FilesName"];?>" width="540" height="350">
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 align="center"> <?=$paymentResult["Detail"];?></h2>
+                </div>
             </div>
         </div>
     </section>
+    <hr>
 
     <!-- Footer -->
     <footer class="py-5 bg-light">
         <div class="container">
-            <p class="m-0 text-center ">Copyright &copy; CS22-2019</p>
+            <div class="row">
+                <div class="col-lg-6" align="left">
+                    สาขาวิชาวิทยาการคอมพิวเตอร์ คณะวิทยาศาสตร์ มหาวิทยาลัยแม่โจ้<br>
+                    63 หมู่ 4 ตำบลหนองหาร อำเภอสันทราย จังหวัดเชียงใหม่ 50290
+                </div>
+                <div class="col-lg-6" align="right">
+                    <div class="row">
+                        <div class="col-lg" align="right">
+                            รายละเอียดเพิ่มเติม<br>
+                            053-873890-3<br>
+                        </div>
+                        <div >
+                            <a href="https://www.facebook.com/comscience.mju">
+                                <img src="images/icon/facebook.png" width="40" height="">
+                            </a>
+                            <a href="https://www.youtube.com/user/comscimaejo">
+                                <img src="images/icon/youtube.png" width="40" height="">
+
+                            </a>
+                            <a href="http://csmju.jowave.com">
+                                <img src="images/icon/dribbble.png" width="40" height="">
+                            </a></div>
+                    </div>
+                </div>
+            </div>
         </div>
+        <br><br>
+        <div class="" align="">
+
+        </div><br>
+        <p class="m-0 text-center ">Copyright &copy; CS22-2019</p>
     </footer>
 
     <!-- Login Modal -->
-    <?php include("login.php"); ?>
+    <?php include("user_login.php"); ?>
 
     <!-- Register modal -->
     <?php include("user_register.php"); ?>

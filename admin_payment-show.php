@@ -19,7 +19,7 @@ $resultpayment = mysqli_fetch_array($querypayment,MYSQLI_ASSOC);
 <html>
 
 <head>
-    <title></title>
+<?php include_once("include/title-favicon.php"); ?>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
     <!-- Bootstrap core CSS -->

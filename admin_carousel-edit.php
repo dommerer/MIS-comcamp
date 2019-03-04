@@ -16,7 +16,7 @@
 <html>
 
 <head>
-    <title></title>
+    <?php include_once("include/title-favicon.php"); ?>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
     <!-- Bootstrap core CSS -->
@@ -89,7 +89,7 @@
                                                     <td><b> &nbsp;ตัวอย่างภาพ</td>
                                                     <td>
                                                         <img id="imgAvatar"
-                                                            src="image/<?php echo $result["FilesName"];?>" width="500"
+                                                            src="images/slide/<?php echo $result["FilesName"];?>" width="500"
                                                             height="200">
 
                                                     </td>

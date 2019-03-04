@@ -7,7 +7,7 @@
 
 	if($_SESSION['userID'] == "")
 	{
-		echo "Please Login!";
+		header("location:alert/alert_login.php");
 		exit();
 	}
 	$strSQL = "SELECT * FROM comcamp_users WHERE userID = '".$_SESSION['userID']."' ";
@@ -18,7 +18,7 @@
 <html>
 
 <head>
-    <title>EDIT</title>
+<?php include_once("include/title-favicon.php"); ?>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
     <!-- Bootstrap core CSS -->
@@ -34,19 +34,19 @@
             <?php include("user_header.php"); ?>
             <div class="card-body">
                 <blockquote class="blockquote mb-0">
-                <div class="row">
-                        <div class="col-9">
-                            <h2 align="left">แก้ไขข้อมูลส่วนตัว</h2>
-                        </div>
-                        <div class="col-3">
-                        <a href="user_page.php" class="btn btn-danger">ยกเลิก</a>
-                        <a href="user_slip-show.php?customerID=<?=$objResult["customerID"];?>"
-                                class="btn btn-success my-2 my-sm-2">อัพโหลดสลิป</a>&nbsp;
-                        </div>
-                    </div>
-                    <hr>
                     <form name="form1" method="post" action="user_profile-update.php">
-
+                        <div class="row">
+                            <div class="col-9">
+                                <h2 align="left">แก้ไขข้อมูลส่วนตัว</h2>
+                            </div>
+                            <div class="col-3">
+                                <button class="btn btn-success" type="submit" name="Submit" value="Save">ยืนยัน</button>
+                                
+                                <input class="btn btn-danger" type="button" value="ยกเลิก"
+                                    onclick="window.location.href='user_page.php'" />
+                            </div>
+                        </div>
+                        <hr>
                         <table style="width: 800px" align="center" class="table">
                             <tbody>
                                 <tr>
@@ -213,13 +213,6 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <div class="input-group" align="center">
-                            <button class="btn btn-danger" type="submit" name="Submit" value="Save">ยืนยัน</button>
-                            &nbsp;
-                            <input class="btn btn-primary" type="button" value="ยกเลิก"
-                                onclick="window.location.href='user_page.php'" />
-
-                        </div>
                     </form>
                     <footer class="blockquote-footer">ข้อมูลข้างต้นเป็นแค่ส่วนประกอบที่ใช้สำหรับกิจกรรมภายในค่ายเท่านั้น
                         <cite title="Source Title">Source Title</cite>
