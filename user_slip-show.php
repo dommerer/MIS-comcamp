@@ -1,17 +1,20 @@
-<?php require_once('Connections/connection.php'); ?>
+<?php 
+    require_once('Connections/connection.php'); 
+    
+?>
 <?php
     session_start();
     require_once('Connections/connection.php');
 
 	if($_SESSION['userID'] == "")
 	{
-		echo "Please Login!";
+		header("location:alert/alert_login.php");
 		exit();
 	}
 
 	if($_SESSION['status'] != "user")
 	{
-		echo "This page for User only!";
+		header("location:alert/alert_user-page.php");
 		exit();
 	}	
 
@@ -34,6 +37,7 @@
     <!-- Custom CSS -->
     <link href="css/font.css" rel="stylesheet">
 
+    
 </head>
 
 <body class="kanit-font">
@@ -46,6 +50,9 @@
                     <div class="row">
                         <div class="col-9">
                             <h2 align="left">อัพโหลดสลิป</h2>
+                            <h5 align="left">
+                                <font color='#FF0000'>*กรุณาตั้งชื่อไฟล์ที่จะอัพโหลดเป็นชื่อของท่าน เช่น ปราโมทย์.jpg เป็นต้น</font>
+                            </h5>
                         </div>
                         <div class="col-3">
 
@@ -69,7 +76,7 @@
                                     <td>
                                         <input type="hidden" name="hdnOldFile"
                                             value="<?php echo $slipResult["slip"];?>">
-                                        <input class="btn btn-primary" name="btnSubmit" type="submit" value="ตกลง">
+                                        <input class="btn btn-primary send-notify" name="btnSubmit" type="submit" value="ตกลง">
                                         <input class="btn btn-danger" type="button" value="ยกเลิก"
                                             onclick="window.location.href='user_page.php'" />
                                     </td>
@@ -84,8 +91,8 @@
                             </tbody>
                         </table>
                     </form>
-                    <footer class="blockquote-footer">ข้อมูลข้างต้นเป็นแค่ส่วนประกอบที่ใช้สำหรับกิจกรรมภายในค่ายเท่านั้น
-                        <cite title="Source Title">Source Title</cite>
+                    <footer class="blockquote-footer">
+                        <cite title="Source Title">ข้อมูลข้างต้นเป็นแค่ส่วนประกอบที่ใช้สำหรับกิจกรรมภายในค่ายเท่านั้น</cite>
                     </footer>
                 </blockquote>
             </div>

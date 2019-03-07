@@ -58,7 +58,7 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td><b> &nbsp;ชื่อภาพ</td>
+                                                    <td><b> &nbsp;ชื่ออัลบั้ม</td>
                                                     <td>
                                                         <input class="form-control" type="text" name="txtAlbumName"
                                                             maxlength="100">

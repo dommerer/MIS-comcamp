@@ -1,26 +1,8 @@
 <?php
     session_start();
     require_once('Connections/connection.php');
-
-	if(trim($_POST["username"]) == "")
-	{
-		header('Location:alert/alert_username.php');
-		exit();	
-	}
-	if(trim($_POST["password"]) == "")
-	{
-		header('Location:alert/alert_password.php');
-		exit();	
-	}	
-	if($_POST["password"] != $_POST["conpassword"])
-	{
-		header('Location:alert/alert_passwordnotmatch.php');
-		exit();
-	}
-	
+	$now = date("Y-m-d H:i:s");
 	$strSQL = "UPDATE comcamp_users SET
-								username 	= '".trim($_POST['username'])."',
-								password 	= '".trim($_POST['password'])."',
 								firstname 	= '".trim($_POST['firstname'])."',
 								lastname 	= '".trim($_POST['lastname'])."',
 								nickname 	= '".trim($_POST['nickname'])."',
@@ -37,7 +19,8 @@
 								teacher 	= '".trim($_POST['teacher'])."',
 								phoneteacher = '".trim($_POST['phoneteacher'])."',
 								allergic 	= '".trim($_POST['allergic'])."',
-								religion 	= '".trim($_POST['religion'])."'
+								religion 	= '".trim($_POST['religion'])."',
+								modifyuser 	= '".trim($now)."'
 				WHERE userID = '".$_POST["userID"]."' ";
 	$objQuery = mysqli_query($objCon,$strSQL);
 	

@@ -32,7 +32,7 @@
 										phone,address,parent,phoneparent,school,degree,
 										teacher,phoneteacher,allergic,religion,status,payment) 
                     VALUES ('".$_POST["username"]."',
-                            '".$_POST["password"]."',
+                            '".MD5($_POST["password"])."',
                             '".$_POST["firstname"]."',
                             '".$_POST["lastname"]."',
                             '".$_POST["nickname"]."',

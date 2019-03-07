@@ -17,12 +17,12 @@
 		header('Location:alert/alert_password.php');
 		exit();	
 	}	
-	if($_POST["password"] != $_POST["conpassword"])
+	if($_POST["password"] != MD5($_POST["conpassword"]))
 	{
-		header('Location:alert/alert_passwordnotmatch.php');
+		header('Location:alert/alert_password-notmatch.php');
 		exit();
 	}
-	
+	$now = date("Y-m-d H:i:s");
 	$strSQL = "UPDATE comcamp_users SET
 								username 	= '".trim($_POST['username'])."',
 								password 	= '".trim($_POST['password'])."',
@@ -42,7 +42,8 @@
 								teacher 	= '".trim($_POST['teacher'])."',
 								phoneteacher = '".trim($_POST['phoneteacher'])."',
 								allergic 	= '".trim($_POST['allergic'])."',
-								religion 	= '".trim($_POST['religion'])."'
+								religion 	= '".trim($_POST['religion'])."',
+								modifyuser 	= '".trim($now)."'
 				WHERE userID = '".$_SESSION["userID"]."' ";
 	$objQuery = mysqli_query($objCon,$strSQL);
 	

@@ -3,7 +3,7 @@
 	require_once('Connections/connection.php');
 
 	$strSQL = "SELECT * FROM comcamp_students WHERE Username = '".mysqli_real_escape_string($objCon,$_POST['txtUsername'])."' 
-	and Password = '".mysqli_real_escape_string($objCon,$_POST['txtPassword'])."'";
+	and Password = '".mysqli_real_escape_string($objCon,MD5($_POST['txtPassword']))."'";
 	$objQuery = mysqli_query($objCon,$strSQL);
     $objResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
     

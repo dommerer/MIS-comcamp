@@ -1,7 +1,7 @@
 <?php
     session_start();
     require_once('Connections/connection.php');
-
+    
 	if($_SESSION['userID'] == "")
 	{
 		header("location:alert/alert_login.php");
@@ -177,6 +177,8 @@
 
     <!-- Plugin JavaScript -->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    
 </body>
 
 </html>

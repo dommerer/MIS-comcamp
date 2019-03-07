@@ -60,31 +60,14 @@
                         <hr>
                         <table style="width: 800px" align="center" class="table">
                             <tbody>
-                                <tr>
-                                    <td width=""><b> &nbsp;User ID</td>
-                                    <td width=""><input type="hidden" name="userID" value="<?php echo $result["userID"];?>">
-                                        <?php echo $result["userID"];?>
-                                    </td>
-                                </tr>
+                                
+                                   <input type="hidden" name="userID" value="<?php echo $result["userID"];?>">
+                                    
+                               
                                 <tr>
                                     <td><b> &nbsp;ชื่อผู้ใช้งาน</td>
                                     <td>
-                                        <input class="form-control" type="text" name="username" id="username"
-                                            value="<?php echo $result["username"];?>" required>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><b> &nbsp;รหัสผ่าน</td>
-                                    <td>
-                                        <input class="form-control" type="password" name="password" id="password"
-                                            value="<?php echo $result["password"];?>" required>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><b> &nbsp;ยืนยันรหัสผ่าน</td>
-                                    <td>
-                                        <input class="form-control" type="password" name="conpassword" id="conpassword"
-                                            value="" required>
+                                        <?php echo $result["username"];?>
                                     </td>
                                 </tr>
                                 <tr>

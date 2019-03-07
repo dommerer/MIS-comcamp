@@ -46,7 +46,7 @@
                         </div>
                     </div>
                     <hr>
-                    <div class="jumbotron">
+                    <div style=" width:100%; height:600px; overflow: auto;">
                         <table class="table" width="100%" align="center">
                             <thead class="thead-dark">
                                 <tr>
@@ -98,6 +98,7 @@
 	        }
         ?>
                         </table>
+
                     </div>
                 </blockquote>
             </div>

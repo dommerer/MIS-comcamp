@@ -15,7 +15,7 @@
 <html>
 
 <head>
-<?php include_once("include/title-favicon.php"); ?>
+    <?php include_once("include/title-favicon.php"); ?>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
     <!-- Bootstrap core CSS -->
@@ -40,80 +40,84 @@
                     <form name="form1" method="post" action="save_profile.php">
                         <hr>
                         <div class="row">
-                            <div class="col-8">
+                            <div class="col-7">
                                 <h2 align="left">รายชื่อผู้เข้าร่วม</h2>
                             </div>
-                            <div class="col-4">
+                            <div class="col-5">
                                 <input class="btn btn-success" type="button" value="เพิ่มรายชื่อ"
                                     onclick="window.location.href='admin_namelist-insert.php'" />
                                 <input class="btn btn-warning" type="button" value="ข้อมูลรายชื่อทั้งหมด"
-                                    onclick="window.location.href='admin_namelist-total.php'" />&nbsp;
+                                    onclick="window.location.href='admin_namelist-total.php'" />
+                                <input class="btn btn-danger" type="button" value="ลบรายชื่อทั้งหมด"
+                                    onclick="JavaScript:if(confirm('คุณต้องการลบรายชื่อทั้งหมดหรือไม่?')==true){window.location='admin_namelist-delete-total.php';}">
                             </div>
                         </div>
                         <hr>
-                        <table class="table">
-                            <thead class="thead-dark">
+                        <div style=" width:100%; height:550px; overflow: auto;">
+                            <table class="table">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th>
+                                            <div align="center">#</div>
+                                        </th>
+                                        <th>
+                                            <div align="center">ชื่อ </div>
+                                        </th>
+                                        <th>
+                                            <div align="center">นามสกุล </div>
+                                        </th>
+                                        <th>
+                                            <div align="center">ชื่อเล่น </div>
+                                        </th>
+                                        <th>
+                                            <div align="center">เบอร์โทรศัพท์ </div>
+                                        </th>
+                                        <th>
+                                            <div align="center">โรงเรียน </div>
+                                        </th>
+                                        <th>
+                                            <div align="center">ชั้น </div>
+                                        </th>
+                                        <th>
+                                            <div align="center">ตัวเลือก </div>
+                                        </th>
+
+                                    </tr>
+                                </thead>
+
+                                <?php $item = 1; ?>
+                                <?php while($result = mysqli_fetch_array($query,MYSQLI_ASSOC)){ ?>
+
                                 <tr>
-                                    <th>
-                                        <div align="center">#</div>
-                                    </th>
-                                    <th>
-                                        <div align="center">ชื่อ </div>
-                                    </th>
-                                    <th>
-                                        <div align="center">นามสกุล </div>
-                                    </th>
-                                    <th>
-                                        <div align="center">ชื่อเล่น </div>
-                                    </th>
-                                    <th>
-                                        <div align="center">เบอร์โทรศัพท์ </div>
-                                    </th>
-                                    <th>
-                                        <div align="center">โรงเรียน </div>
-                                    </th>
-                                    <th>
-                                        <div align="center">ชั้น </div>
-                                    </th>
-                                    <th>
-                                        <div align="center">ตัวเลือก </div>
-                                    </th>
+                                    <td>
+                                        <div align="center"><?php echo $item++; ?></div>
+                                    </td>
+                                    <td><?php echo $result["firstname"];?></td>
+                                    <td><?php echo $result["lastname"];?></td>
+                                    <td>
+                                        <div align="center"><?php echo $result["nickname"];?></div>
+                                    </td>
+                                    <td>
+                                        <div align="center"><?php echo $result["phone"];?></div>
+                                    </td>
+                                    </td>
 
+                                    <td><?php echo $result["school"];?></td>
+                                    <td><?php echo $result["degree"];?></td>
+
+                                    <td align="center">
+                                        <input class="btn btn-primary" type="button" value="แก้ไข"
+                                            onclick="window.location.href='admin_namelist-edit.php?userID=<?php echo $result['userID'];?>'">
+
+                                        <input class="btn btn-danger" type="button" value="ลบ"
+                                            onclick="JavaScript:if(confirm('คุณต้องการลบ <?php echo $result['firstname'].' '.$result['lastname'];?> หรือไม่?')==true){window.location='admin_namelist-delete.php?userID=<?php echo $result['userID'];?>';}">
+                                    </td>
                                 </tr>
-                            </thead>
-
-                            <?php $item = 1; ?>
-                            <?php while($result = mysqli_fetch_array($query,MYSQLI_ASSOC)){ ?>
-
-                            <tr>
-                                <td>
-                                    <div align="center"><?php echo $item++; ?></div>
-                                </td>
-                                <td><?php echo $result["firstname"];?></td>
-                                <td><?php echo $result["lastname"];?></td>
-                                <td>
-                                    <div align="center"><?php echo $result["nickname"];?></div>
-                                </td>
-                                <td>
-                                    <div align="center"><?php echo $result["phone"];?></div>
-                                </td>
-                                </td>
-
-                                <td><?php echo $result["school"];?></td>
-                                <td><?php echo $result["degree"];?></td>
-
-                                <td align="center">
-                                    <input class="btn btn-primary" type="button" value="แก้ไข"
-                                        onclick="window.location.href='admin_namelist-edit.php?userID=<?php echo $result['userID'];?>'">
-
-                                    <input class="btn btn-danger" type="button" value="ลบ"
-                                        onclick="JavaScript:if(confirm('Confirm Delete?')==true){window.location='admin_namelist-delete.php?userID=<?php echo $result['userID'];?>';}">
-                                </td>
-                            </tr>
-                            <?php
+                                <?php
 	}
   ?>
-                        </table>
+                            </table>
+                        </div>
                         <footer class="blockquote-footer">
                             ข้อมูลข้างต้นเป็นแค่ส่วนประกอบที่ใช้สำหรับกิจกรรมภายในค่ายเท่านั้น
                             <cite title="Source Title">Source Title</cite>

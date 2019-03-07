@@ -19,7 +19,7 @@ $resultpayment = mysqli_fetch_array($querypayment,MYSQLI_ASSOC);
 <html>
 
 <head>
-<?php include_once("include/title-favicon.php"); ?>
+    <?php include_once("include/title-favicon.php"); ?>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
     <!-- Bootstrap core CSS -->
@@ -46,73 +46,74 @@ $resultpayment = mysqli_fetch_array($querypayment,MYSQLI_ASSOC);
                             <h2 align="left">การชำระเงิน</h2>
                         </div>
                         <div class="col-3">
-                        <input class="btn btn-warning" type="button" value="แก้ไขรายละเอียดการชำระเงิน"
-                                        onclick="window.location.href='admin_payment-detail-edit.php?FilesID=<?php echo $resultpayment['FilesID'];?>'">
+                            <input class="btn btn-warning" type="button" value="แก้ไขรายละเอียดการชำระเงิน"
+                                onclick="window.location.href='admin_payment-detail-edit.php?FilesID=<?php echo $resultpayment['FilesID'];?>'">
                         </div>
                     </div>
                     <hr>
 
-
-                    <table class="table" width="100%">
-                        <thead class="thead-dark">
+                    <div style=" width:100%; height:580px; overflow: auto;">
+                        <table class="table" width="100%">
+                            <thead class="thead-dark">
+                                <tr align="center">
+                                    <th width="5%">ลำดับ</th>
+                                    <th width="15%">ชื่อ</th>
+                                    <th width="15%">นามสกุล</th>
+                                    <th width="15%">สลิป</th>
+                                    <th width="15%">สถานะการชำระเงิน</th>
+                                    <th width="20%">ตัวเลือก</th>
+                                </tr>
+                            </thead>
+                            <?php $item = 1; ?>
+                            <?php while($result = mysqli_fetch_array($query,MYSQLI_ASSOC)) { ?>
                             <tr align="center">
-                                <th width="5%">ลำดับ</th>
-                                <th width="15%">ชื่อ</th>
-                                <th width="15%">นามสกุล</th>
-                                <th width="20%">สลิป</th>
-                                <th width="15%">สถานะการชำระเงิน</th>
-                                <th width="25%">ตัวเลือก</th>
-                            </tr>
-                        </thead>
-                        <?php $item = 1; ?>
-                        <?php while($result = mysqli_fetch_array($query,MYSQLI_ASSOC)) { ?>
-                        <tr align="center">
-                            <td><?php echo $item++; ?></td>
-                            <td><?php echo $result['firstname']; ?></td>
-                            <td><?php echo $result['lastname']; ?></td>
-                            <td><a target="_blank" href="images/slip/<?php echo $result["slip"];?>"><?php echo $result["slip"];?></a>
-                            </td>
-                            <td>
-                                <?php 
+                                <td><?php echo $item++; ?></td>
+                                <td><?php echo $result['firstname']; ?></td>
+                                <td><?php echo $result['lastname']; ?></td>
+                                <td><a target="_blank"
+                                        href="images/slip/<?php echo $result["slip"];?>"><?php echo $result["slip"];?></a>
+                                </td>
+                                <td>
+                                    <?php 
                                     if($result['payment']=="2"){
                                             echo "<font color='#FF0000'>ยังไม่ได้ชำระ</font>";
                                     }if($result['payment']=="1"){
                                             echo "<font color='#31B404'>ชำระแล้ว</font>";
                                     }
                                 ?>
-                            </td>
-                            <td>
-                                <form action="admin_payment-update.php" method="post" name="form1">
-                                    <div class="row">
-                                        <div class="col-8">
-                                            <input type="hidden" name="userID" value=<?php echo $result['userID'];?>>
-                                            <select class="form-control" name="payment" id="payment">
-                                                <option disabled="disabled" selected="selected">โปรดระบุ</option>
-                                                <?php
+                                </td>
+                                <td>
+                                    <form action="admin_payment-update.php" method="post" name="form1">
+                                        <div class="row">
+                                            <div class="col-8">
+                                                <input type="hidden" name="userID"
+                                                    value=<?php echo $result['userID'];?>>
+                                                <select class="form-control" name="payment" id="payment">
+                                                    <option disabled="disabled" selected="selected">โปรดระบุ</option>
+                                                    <?php
                                                     $strSQL = "SELECT * FROM comcamp_payments ORDER BY payID ASC";
                                                     $objQuery = mysqli_query($objCon,$strSQL);
                                                     while($objResult = mysqli_fetch_array($objQuery)){
                                                 ?>
-                                                <option value="<?php echo $objResult["payID"];?>">
-                                                    <?php echo $objResult["paystatus"];?>
-                                                </option>
-                                                <?php 
+                                                    <option value="<?php echo $objResult["payID"];?>">
+                                                        <?php echo $objResult["paystatus"];?>
+                                                    </option>
+                                                    <?php 
                                                     }
                                                 ?>
-                                            </select>
+                                                </select>
+                                            </div>
+                                            <div class="">
+                                                <input class="btn btn-primary" name="btnSubmit" type="submit"
+                                                    value="บันทึก">
+                                            </div>
                                         </div>
-                                        <div class="">
-                                            <input class="btn btn-primary" name="btnSubmit" type="submit"
-                                                value="บันทึก">
-                                        </div>
-                                    </div>
-                                </form>
-
-                            </td>
-                        </tr>
-                        <?php } ?>
-                    </table>
-                    <br>
+                                    </form>
+                                </td>
+                            </tr>
+                            <?php } ?>
+                        </table>
+                    </div>
                 </blockquote>
             </div>
         </div>

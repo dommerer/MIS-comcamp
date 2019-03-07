@@ -6,7 +6,7 @@
         <h3 class="alert-heading">รหัสผ่านไม่ตรงกัน!</h3>
         <p>กรุณาตรวจสอบรหัสผ่านของท่านแล้วทำการเข้าสู่ระบบใหม่อีกครั้งครับ</p>
         <hr>
-        <a class="btn btn-danger my-2 my-sm-2" href="../index.php">กลับหน้าหลัก</a>
+        <a class="btn btn-danger my-2 my-sm-2" href="../user_profile-edit.php">กลับหน้าแก้ไข</a>
     </div>
 </div>
 

@@ -49,7 +49,7 @@
                             </div>
                         </div>
                         <hr>
-                        <div style=" width:100%; height:500px; overflow: auto;">
+                        <div style=" width:100%; height:600px; overflow: auto;">
                             <table class="table">
                                 <thead class="thead-dark" >
                                     <tr align="center" >

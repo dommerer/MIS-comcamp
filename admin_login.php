@@ -28,14 +28,15 @@
 
                     <div class="modal-body">
 
-                        <div class="row justify-content-md-center">
-                            <div class=" col-3" align="center">
-                                <input type="text" class="form-control" placeholder="ชื่อผู้ใช้งาน" name="txtUsername"
+                        <div class="row justify-content-md-center" align="center">
+                            <div class=" col" >
+                            
+                                <input type="text" class="form-control" placeholder="ชื่อผู้ใช้งาน" style="width:250px;" name="txtUsername"
                                     id="txtUsername" required /><br>
-                                <input type="password" class="form-control" placeholder="รหัสผ่าน" name="txtPassword"
+                                <input type="password" class="form-control" placeholder="รหัสผ่าน"  style="width:250px" name="txtPassword"
                                     id="txtPassword" required /><br>
                                 <button class="btn btn-success">เข้าสู่ระบบ</button>
-                                <br><br>
+                                <br>
                             </div>
                         </div>
                     </div>

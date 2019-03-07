@@ -1,4 +1,7 @@
-<?php require_once('Connections/connection.php'); ?>
+<?php 
+	require_once('Connections/connection.php'); 
+ 	include('line/noti.php');
+ ?>
 <?php	
 	
 	if($_FILES["filUpload"]["name"] != "")

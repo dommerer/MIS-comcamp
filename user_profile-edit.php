@@ -49,12 +49,7 @@
                         <hr>
                         <table style="width: 800px" align="center" class="table">
                             <tbody>
-                                <tr>
-                                    <td width=""><b> &nbsp;User ID</td>
-                                    <td width="">
-                                        <?php echo $objResult["userID"];?>
-                                    </td>
-                                </tr>
+                                
                                 <tr>
                                     <td><b> &nbsp;ชื่อผู้ใช้งาน</td>
                                     <td>
@@ -214,8 +209,8 @@
                             </tbody>
                         </table>
                     </form>
-                    <footer class="blockquote-footer">ข้อมูลข้างต้นเป็นแค่ส่วนประกอบที่ใช้สำหรับกิจกรรมภายในค่ายเท่านั้น
-                        <cite title="Source Title">Source Title</cite>
+                    <footer class="blockquote-footer">
+                        <cite title="Source Title">ข้อมูลข้างต้นเป็นแค่ส่วนประกอบที่ใช้สำหรับกิจกรรมภายในค่ายเท่านั้น</cite>
                     </footer>
                 </blockquote>
             </div>
